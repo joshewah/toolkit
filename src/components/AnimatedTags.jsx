@@ -1,29 +1,99 @@
 import React from "react"
 import "./AnimatedTags.css"
+import {
+  FaRobot,
+  FaFlask,
+  FaBook,
+  FaPalette,
+  FaWandMagicSparkles,
+  FaFont,
+  FaLightbulb,
+  FaCamera,
+  FaDrawPolygon,
+  FaShieldHalved,
+} from "react-icons/fa6"
+import { FaCode, FaTools, FaPenNib } from "react-icons/fa"
 
 const AnimatedTags = ({ rows }) => {
   const TAGS = [
-    { backgroundColor: "#495057", color: "#f8f9fa", category: "AI" },
-    { backgroundColor: "#F03E3E", color: "#fff5f5", category: "Colours" },
-    { backgroundColor: "#D6336C", color: "#fff0f6", category: "Learning" },
-    { backgroundColor: "#AE3EC9", color: "#f8f0fc", category: "Inspiration" },
-    { backgroundColor: "#7048E8", color: "#f3f0ff", category: "Design" },
+    {
+      backgroundColor: "#495057",
+      color: "#f8f9fa",
+      category: "AI",
+      icon: <FaRobot />,
+    },
+    {
+      backgroundColor: "#F03E3E",
+      color: "#fff5f5",
+      category: "Colours",
+      icon: <FaPalette />,
+    },
+    {
+      backgroundColor: "#D6336C",
+      color: "#fff0f6",
+      category: "Learning",
+      icon: <FaBook />,
+    },
+    {
+      backgroundColor: "#AE3EC9",
+      color: "#f8f0fc",
+      category: "Inspiration",
+      icon: <FaLightbulb />,
+    },
+    {
+      backgroundColor: "#7048E8",
+      color: "#f3f0ff",
+      category: "Design",
+      icon: <FaPenNib />,
+    },
     {
       backgroundColor: "#4263EB",
       color: "#edf2ff",
       category: "CSS Generators",
+      icon: <FaWandMagicSparkles />,
     },
     {
       backgroundColor: "#1C7ED6",
       color: "#e7f5ff",
       category: "VS Code Extensions",
+      icon: <FaCode />,
     },
-    { backgroundColor: "#1098AD", color: "#e3fafc", category: "Testing" },
-    { backgroundColor: "#0CA678", color: "#e6fcf5", category: "Photography" },
-    { backgroundColor: "#37B24D", color: "#ebfbee", category: "Typography" },
-    { backgroundColor: "#74B816", color: "#f4fce3", category: "Illustrations" },
-    { backgroundColor: "#F59F00", color: "#fff9db", category: "Services" },
-    { backgroundColor: "#F76707", color: "#fff4e6", category: "Icons" },
+    {
+      backgroundColor: "#1098AD",
+      color: "#e3fafc",
+      category: "Testing",
+      icon: <FaFlask />,
+    },
+    {
+      backgroundColor: "#0CA678",
+      color: "#e6fcf5",
+      category: "Photography",
+      icon: <FaCamera />,
+    },
+    {
+      backgroundColor: "#37B24D",
+      color: "#ebfbee",
+      category: "Typography",
+      icon: <FaFont />,
+    },
+    {
+      backgroundColor: "#74B816",
+      color: "#f4fce3",
+      category: "Illustrations",
+      icon: <FaDrawPolygon />,
+    },
+    {
+      backgroundColor: "#F59F00",
+      color: "#fff9db",
+      category: "Services",
+      icon: <FaTools />,
+    },
+    {
+      backgroundColor: "#F76707",
+      color: "#fff4e6",
+      category: "Icons",
+      icon: <FaShieldHalved />,
+    },
   ]
 
   const DURATION = 28000
@@ -51,6 +121,8 @@ const AnimatedTags = ({ rows }) => {
 
   const Tag = ({ tagInfo }) => {
     const { backgroundColor, color, category } = tagInfo
+    const { icon } = tagInfo
+    console.log(icon ? icon : null)
 
     return (
       <div
@@ -63,7 +135,8 @@ const AnimatedTags = ({ rows }) => {
           boxShadow: `0 0.2rem 1rem ${backgroundColor}`,
         }}
       >
-        #{category}
+        {icon ? icon : "#"}
+        {category}
       </div>
     )
   }
