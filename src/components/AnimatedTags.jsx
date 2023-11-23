@@ -3,34 +3,29 @@ import "./AnimatedTags.css"
 
 const AnimatedTags = ({ rows }) => {
   const TAGS = [
-    { backgroundColor: "#495057", color: "#f8f9fa", category: "Lorem" },
-    { backgroundColor: "#F03E3E", color: "#fff5f5", category: "Lorem" },
-    { backgroundColor: "#D6336C", color: "#fff0f6", category: "Lorem" },
-    { backgroundColor: "#AE3EC9", color: "#f8f0fc", category: "Lorem" },
-    { backgroundColor: "#7048E8", color: "#f3f0ff", category: "Lorem" },
-    { backgroundColor: "#4263EB", color: "#edf2ff", category: "Lorem" },
-    { backgroundColor: "#1C7ED6", color: "#e7f5ff", category: "Lorem" },
-    { backgroundColor: "#1098AD", color: "#e3fafc", category: "Lorem" },
-    { backgroundColor: "#0CA678", color: "#e6fcf5", category: "Lorem" },
-    { backgroundColor: "#37B24D", color: "#ebfbee", category: "Lorem" },
-    { backgroundColor: "#74B816", color: "#f4fce3", category: "Lorem" },
-    { backgroundColor: "#F59F00", color: "#fff9db", category: "Lorem" },
-    { backgroundColor: "#F76707", color: "#fff4e6", category: "Lorem" },
+    { backgroundColor: "#495057", color: "#f8f9fa", category: "AI" },
+    { backgroundColor: "#F03E3E", color: "#fff5f5", category: "Colours" },
+    { backgroundColor: "#D6336C", color: "#fff0f6", category: "Learning" },
+    { backgroundColor: "#AE3EC9", color: "#f8f0fc", category: "Inspiration" },
+    { backgroundColor: "#7048E8", color: "#f3f0ff", category: "Design" },
+    {
+      backgroundColor: "#4263EB",
+      color: "#edf2ff",
+      category: "CSS Generators",
+    },
+    {
+      backgroundColor: "#1C7ED6",
+      color: "#e7f5ff",
+      category: "VS Code Extensions",
+    },
+    { backgroundColor: "#1098AD", color: "#e3fafc", category: "Testing" },
+    { backgroundColor: "#0CA678", color: "#e6fcf5", category: "Photography" },
+    { backgroundColor: "#37B24D", color: "#ebfbee", category: "Typography" },
+    { backgroundColor: "#74B816", color: "#f4fce3", category: "Illustrations" },
+    { backgroundColor: "#F59F00", color: "#fff9db", category: "Services" },
+    { backgroundColor: "#F76707", color: "#fff4e6", category: "Icons" },
   ]
-  //   const TAGS = [
-  //     "HTML",
-  //     "CSS",
-  //     "JavaScript",
-  //     "Typescript",
-  //     "Tailwind",
-  //     "React",
-  //     "Next.js",
-  //     "Gatsby",
-  //     "UI/UX",
-  //     "SVG",
-  //     "animation",
-  //     "webdev",
-  //   ]
+
   const DURATION = 28000
   const TAGS_PER_ROW = 8
 
@@ -44,7 +39,6 @@ const AnimatedTags = ({ rows }) => {
         style={{
           "--duration": `${duration}ms`,
           "--direction": reverse ? "reverse" : "normal",
-          "--BACKGROUND": `bg-background`,
         }}
       >
         <div className="inner">
@@ -55,8 +49,9 @@ const AnimatedTags = ({ rows }) => {
     )
   }
 
-  const Tag = ({ text }) => {
-    const { backgroundColor, color } = TAGS[random(0, TAGS.length - 1)]
+  const Tag = ({ tagInfo }) => {
+    const { backgroundColor, color, category } = tagInfo
+
     return (
       <div
         className="tag"
@@ -65,10 +60,10 @@ const AnimatedTags = ({ rows }) => {
           color: color,
           boxShadow: `0 0.1rem 0.2rem ${backgroundColor}`,
           boxShadow: `0 0.1rem 0.5rem ${backgroundColor}`,
-          //   boxShadow: `0 0.2rem 1rem ${backgroundColor}`,
+          boxShadow: `0 0.2rem 1rem ${backgroundColor}`,
         }}
       >
-        #{text}
+        #{category}
       </div>
     )
   }
@@ -84,7 +79,7 @@ const AnimatedTags = ({ rows }) => {
           {shuffle(TAGS)
             .slice(0, TAGS_PER_ROW)
             .map((tag) => (
-              <Tag text={tag.category} key={tag.category} />
+              <Tag tagInfo={tag} key={tag.category} />
             ))}
         </InfiniteLoopSlider>
       ))}

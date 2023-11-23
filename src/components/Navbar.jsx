@@ -15,7 +15,7 @@ const Navbar = () => {
               TOOLkit
             </span>
           </Link>
-          {/* TODO: fix the nav */}
+          {/* TODO: fix the mobile nav */}
           <FaBars className="text-3xl md:hidden" />
           <nav className="hidden items-center gap-4 text-sm font-medium md:flex ">
             <NavLink to="tools">Tools</NavLink>
