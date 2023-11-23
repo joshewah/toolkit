@@ -44,6 +44,7 @@ const AnimatedTags = ({ rows }) => {
         style={{
           "--duration": `${duration}ms`,
           "--direction": reverse ? "reverse" : "normal",
+          "--BACKGROUND": `bg-background`,
         }}
       >
         <div className="inner">

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const Featured = () => {
   return (
-    <section className="min-h-[50vh] bg-blue-700 py-10">
+    <section className="bg-primary min-h-[50vh] py-10">
       <div className="container flex justify-between">
         <h2 className="tracking flex gap-2 text-4xl font-semibold text-white">
           Featured <BsStars className="text-yellow-500" />
