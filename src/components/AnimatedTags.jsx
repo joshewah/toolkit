@@ -122,7 +122,6 @@ const AnimatedTags = ({ rows }) => {
   const Tag = ({ tagInfo }) => {
     const { backgroundColor, color, category } = tagInfo
     const { icon } = tagInfo
-    console.log(icon ? icon : null)
 
     return (
       <div
@@ -135,7 +134,7 @@ const AnimatedTags = ({ rows }) => {
           boxShadow: `0 0.2rem 1rem ${backgroundColor}`,
         }}
       >
-        {icon ? icon : "#"}
+        {icon}
         {category}
       </div>
     )
