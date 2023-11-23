@@ -16,7 +16,7 @@ const Landing = () => {
             developers & designers.
           </p>
         </section>
-        <section className="w-full px-12 lg:w-1/2">
+        <section className="w-full md:px-12 lg:w-1/2">
           <AnimatedTags rows={rows} />
         </section>
       </header>

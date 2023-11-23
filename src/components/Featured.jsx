@@ -15,7 +15,7 @@ const Featured = () => {
           state={{ query: "featured" }}
           className="flex items-center gap-2 text-white hover:underline hover:underline-offset-4"
         >
-          View All Featured &
+          View All
           <FaArrowRight />
         </Link>
       </div>
