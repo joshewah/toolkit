@@ -46,6 +46,11 @@ const Footer = () => {
                   Privacy
                 </Link>
               </li>
+              <li>
+                <Link to="suggest" className="mr-0 md:mr-6">
+                  Suggest
+                </Link>
+              </li>
             </ul>
             <ul className="flex gap-2">
               <li>
