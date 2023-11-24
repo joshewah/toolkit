@@ -19,7 +19,7 @@ const Tools = ({ tags }) => {
 
   return (
     <>
-      <header style={styles}>
+      <header style={styles} className="mb-12">
         <div className="container py-12 ">
           {queryCategory ? (
             <div className={`mb-8 flex items-center gap-4 text-4xl font-bold`}>
@@ -28,14 +28,16 @@ const Tools = ({ tags }) => {
             </div>
           ) : (
             <div className={`mb-8 flex items-center gap-4 text-4xl font-bold`}>
-              Tools
+              All Tools
             </div>
           )}
           <ToolsNav />
         </div>
       </header>
       <main className={`flex flex-1`}>
-        <section className="container">hello</section>
+        <section className="container">
+          Tools: {Math.floor(Math.random() * 10) + 1}
+        </section>
       </main>
     </>
   )

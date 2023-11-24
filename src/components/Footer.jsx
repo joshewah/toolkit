@@ -49,12 +49,12 @@ const Footer = () => {
             </ul>
             <ul className="flex gap-2">
               <li>
-                <a href="https://github.com/joshewah">
+                <a href="https://www.linkedin.com/in/josh-taylor-163066252/">
                   <FaLinkedin className="text-5xl" />
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/josh-taylor-163066252/">
+                <a href="https://github.com/joshewah">
                   <FaSquareGithub className="text-5xl" />
                 </a>
               </li>
