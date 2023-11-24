@@ -22,21 +22,47 @@ const Footer = () => {
           </p>
         </div>
       </section>
-      <footer className="bg-background-alt">
-        <div className="container flex items-center justify-between py-6 text-white">
-          <p>Copyright {new Date().getFullYear()}</p>
-          <nav className="flex items-center gap-2">
-            <Link to="tools">Tools</Link>
-            <Link to="support">Support</Link>
-            <Link to="about">About</Link>
-            <Link to="privacy">Privacy</Link>
-            <a href="https://github.com/joshewah">
-              <FaLinkedin className="text-3xl" />
-            </a>
-            <a href="https://www.linkedin.com/in/josh-taylor-163066252/">
-              <FaSquareGithub className="text-3xl" />
-            </a>
+      <footer className="bg-background-alt py-6">
+        <div className="container flex flex-col text-white">
+          <nav className="mb-6 flex justify-between">
+            <ul className="flex flex-col gap-2 text-lg font-semibold md:flex-row md:items-center">
+              <li>
+                <Link to="tools" className="mr-0 md:mr-6">
+                  Tools
+                </Link>
+              </li>
+              <li>
+                <Link to="support" className="mr-0 md:mr-6">
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link to="about" className="mr-0 md:mr-6">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="privacy" className="mr-0 md:mr-6">
+                  Privacy
+                </Link>
+              </li>
+            </ul>
+            <ul className="flex gap-2">
+              <li>
+                <a href="https://github.com/joshewah">
+                  <FaLinkedin className="text-5xl" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/josh-taylor-163066252/">
+                  <FaSquareGithub className="text-5xl" />
+                </a>
+              </li>
+            </ul>
           </nav>
+          <p className="text-sm text-gray-400">
+            Copyright {new Date().getFullYear()}. All Rights Reserved
+          </p>
         </div>
       </footer>
     </>

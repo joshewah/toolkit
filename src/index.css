@@ -14,7 +14,7 @@
   }
 
   p {
-    @apply max-w-[75ch] leading-normal;
+    @apply max-w-[75ch] leading-7;
   }
 }
 
