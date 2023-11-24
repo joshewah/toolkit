@@ -1,100 +1,14 @@
 import React from "react"
 import "./AnimatedTags.css"
-import {
-  FaRobot,
-  FaFlask,
-  FaBook,
-  FaPalette,
-  FaWandMagicSparkles,
-  FaFont,
-  FaLightbulb,
-  FaCamera,
-  FaDrawPolygon,
-  FaShieldHalved,
-} from "react-icons/fa6"
-import { FaCode, FaTools, FaPenNib } from "react-icons/fa"
 
-const AnimatedTags = ({ rows }) => {
-  const TAGS = [
-    {
-      backgroundColor: "#495057",
-      color: "#f8f9fa",
-      category: "AI",
-      icon: <FaRobot />,
-    },
-    {
-      backgroundColor: "#F03E3E",
-      color: "#fff5f5",
-      category: "Colours",
-      icon: <FaPalette />,
-    },
-    {
-      backgroundColor: "#D6336C",
-      color: "#fff0f6",
-      category: "Learning",
-      icon: <FaBook />,
-    },
-    {
-      backgroundColor: "#AE3EC9",
-      color: "#f8f0fc",
-      category: "Inspiration",
-      icon: <FaLightbulb />,
-    },
-    {
-      backgroundColor: "#7048E8",
-      color: "#f3f0ff",
-      category: "Design",
-      icon: <FaPenNib />,
-    },
-    {
-      backgroundColor: "#4263EB",
-      color: "#edf2ff",
-      category: "CSS Generators",
-      icon: <FaWandMagicSparkles />,
-    },
-    {
-      backgroundColor: "#1C7ED6",
-      color: "#e7f5ff",
-      category: "VS Code Extensions",
-      icon: <FaCode />,
-    },
-    {
-      backgroundColor: "#1098AD",
-      color: "#e3fafc",
-      category: "Testing",
-      icon: <FaFlask />,
-    },
-    {
-      backgroundColor: "#0CA678",
-      color: "#e6fcf5",
-      category: "Photography",
-      icon: <FaCamera />,
-    },
-    {
-      backgroundColor: "#37B24D",
-      color: "#ebfbee",
-      category: "Typography",
-      icon: <FaFont />,
-    },
-    {
-      backgroundColor: "#74B816",
-      color: "#f4fce3",
-      category: "Illustrations",
-      icon: <FaDrawPolygon />,
-    },
-    {
-      backgroundColor: "#F59F00",
-      color: "#fff9db",
-      category: "Services",
-      icon: <FaTools />,
-    },
-    {
-      backgroundColor: "#F76707",
-      color: "#fff4e6",
-      category: "Icons",
-      icon: <FaShieldHalved />,
-    },
-  ]
+import { Link } from "react-router-dom"
+
+const AnimatedTags = ({ tags, rows }) => {
+  // const handleClick = (category) => {
+  //   const params = new URLSearchParams({ category: category })
+  //   console.log(params)
+  //   console.log("clicked")
+  // }
 
   const DURATION = 28000
   const TAGS_PER_ROW = 8
@@ -124,7 +38,8 @@ const AnimatedTags = ({ rows }) => {
     const { icon } = tagInfo
 
     return (
-      <div
+      <Link
+        to={`tools?category=${category.toLowerCase()}`}
         className="tag"
         style={{
           backgroundColor: backgroundColor,
@@ -136,7 +51,7 @@ const AnimatedTags = ({ rows }) => {
       >
         {icon}
         {category}
-      </div>
+      </Link>
     )
   }
 
@@ -148,7 +63,7 @@ const AnimatedTags = ({ rows }) => {
           duration={random(DURATION - 5000, DURATION + 5000)}
           reverse={i % 2}
         >
-          {shuffle(TAGS)
+          {shuffle(tags)
             .slice(0, TAGS_PER_ROW)
             .map((tag) => (
               <Tag tagInfo={tag} key={tag.category} />
