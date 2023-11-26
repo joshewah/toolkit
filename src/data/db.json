@@ -1,0 +1,43 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "title": "Realtime Colors",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": ["design", "inspiration"],
+      "views": 123,
+      "dateSubmitted": "21/2/2019",
+      "dateAdded": "17/4/2019",
+      "siteLink": "https://www.realtimecolors.com",
+      "cost": "Free",
+      "previewImage": "preview-template.png",
+      "fullImage": ""
+    },
+    {
+      "id": 2,
+      "title": "Cypress",
+      "description": "With Cypress, you can easily create tests for your modern web applications, debug them visually, and automatically run them in your continuous integration builds.",
+      "category": ["testing"],
+      "views": 63,
+      "dateSubmitted": "21/2/2019",
+      "dateAdded": "17/4/2019",
+      "siteLink": "https://www.cypress.io/",
+      "cost": "Freemium",
+      "previewImage": "../assets/cypress.png",
+      "fullImage": ""
+    },
+    {
+      "id": 3,
+      "title": "Realtime Colors",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": ["design", "inspiration"],
+      "views": 123,
+      "dateSubmitted": "21/2/2019",
+      "dateAdded": "17/4/2019",
+      "siteLink": "https://www.realtimecolors.com",
+      "cost": "Free",
+      "previewImage": "preview-template.png",
+      "fullImage": ""
+    }
+  ]
+}

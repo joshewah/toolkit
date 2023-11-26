@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useEffect, useState } from "react"
 import Layout from "./components/Layout"
 import Landing from "./pages/Landing"
 import Tools from "./pages/Tools"
@@ -22,7 +23,9 @@ import {
 import { FaCode, FaTools, FaPenNib } from "react-icons/fa"
 
 function App() {
-  const TAGS = [
+  const [data, setData] = useState([])
+  const [fetchError, setFetchError] = useState(null)
+  const [tags, setTags] = useState([
     {
       backgroundColor: "#495057",
       color: "#f8f9fa",
@@ -101,16 +104,32 @@ function App() {
       category: "Icons",
       icon: <FaShieldHalved />,
     },
-  ]
+  ])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/tools`)
+        const data = await response.json()
+        setData(data)
+      } catch (error) {
+        setFetchError(error)
+        console.error(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Landing tags={TAGS} />} />
+            <Route index element={<Landing tags={tags} />} />
             <Route path="tools">
-              <Route index element={<Tools tags={TAGS} />} />
-              <Route path=":id" element={<ToolDetails />} />
+              <Route index element={<Tools tags={tags} data={data} />} />
+              <Route path=":id" element={<ToolDetails data={data} />} />
             </Route>
             <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />

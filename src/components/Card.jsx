@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useSearchParams } from "react-router-dom"
-import preview from "../assets/preview-template.png"
+import previewImage from "../assets/preview-template.png"
 
 const Card = ({ tool, tags }) => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -10,6 +10,7 @@ const Card = ({ tool, tags }) => {
     const [tagStyles] = tags.filter((tag) => {
       return tag.category.toLowerCase() === category
     })
+
     const styles = {
       borderStyle: "solid",
       borderWidth: "3px",
@@ -36,7 +37,7 @@ const Card = ({ tool, tags }) => {
     >
       <div>
         <img
-          src={preview}
+          src={previewImage}
           alt={`Preview image of the site ${tool.title}`}
           className="aspect-video w-full rounded-xl border-4 border-white"
         />

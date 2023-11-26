@@ -3,7 +3,7 @@ import ToolsNav from "../components/ToolsNav"
 import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
 
-const Tools = ({ tags }) => {
+const Tools = ({ data, tags }) => {
   const [searchParams, setSearchParams] = useSearchParams()
   const queryCategory = searchParams.get("category")
   const [headerDetails] = tags.filter(
@@ -17,54 +17,10 @@ const Tools = ({ tags }) => {
       }
     : null
 
-  const allData = [
-    {
-      id: 1,
-      title: "Realtime Colors",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      category: ["design", "inspiration"],
-      views: 123,
-      dateSubmitted: "21/2/2019",
-      dateAdded: "17/4/2019",
-      siteLink: "https://www.realtimecolors.com",
-      cost: "Free",
-      previewImage: "",
-      fullImage: "",
-    },
-    {
-      id: 2,
-      title: "Realtime Colors",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      category: ["design", "inspiration"],
-      views: 123,
-      dateSubmitted: "21/2/2019",
-      dateAdded: "17/4/2019",
-      siteLink: "https://www.realtimecolors.com",
-      cost: "Free",
-      previewImage: "",
-      fullImage: "",
-    },
-    {
-      id: 3,
-      title: "Realtime Colors",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      category: ["design", "inspiration"],
-      views: 123,
-      dateSubmitted: "21/2/2019",
-      dateAdded: "17/4/2019",
-      siteLink: "https://www.realtimecolors.com",
-      cost: "Free",
-      previewImage: "",
-      fullImage: "",
-    },
-  ]
-
-  const allTools = allData.map((tool) => (
+  const allTools = data.map((tool) => (
     <Card tool={tool} key={tool.id} tags={tags} />
   ))
+  console.log(allTools)
 
   return (
     <>
