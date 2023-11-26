@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ToolsNav from "../components/ToolsNav"
-import { useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
+import Card from "../components/Card"
 
 const Tools = ({ tags }) => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -8,6 +9,7 @@ const Tools = ({ tags }) => {
   const [headerDetails] = tags.filter(
     (tag) => tag.category.toLowerCase() === queryCategory,
   )
+
   const styles = queryCategory
     ? {
         backgroundColor: headerDetails.backgroundColor,
@@ -15,7 +17,54 @@ const Tools = ({ tags }) => {
       }
     : null
 
-  console.log(styles)
+  const allData = [
+    {
+      id: 1,
+      title: "Realtime Colors",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      category: ["design", "inspiration"],
+      views: 123,
+      dateSubmitted: "21/2/2019",
+      dateAdded: "17/4/2019",
+      siteLink: "https://www.realtimecolors.com",
+      cost: "Free",
+      previewImage: "",
+      fullImage: "",
+    },
+    {
+      id: 2,
+      title: "Realtime Colors",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      category: ["design", "inspiration"],
+      views: 123,
+      dateSubmitted: "21/2/2019",
+      dateAdded: "17/4/2019",
+      siteLink: "https://www.realtimecolors.com",
+      cost: "Free",
+      previewImage: "",
+      fullImage: "",
+    },
+    {
+      id: 3,
+      title: "Realtime Colors",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      category: ["design", "inspiration"],
+      views: 123,
+      dateSubmitted: "21/2/2019",
+      dateAdded: "17/4/2019",
+      siteLink: "https://www.realtimecolors.com",
+      cost: "Free",
+      previewImage: "",
+      fullImage: "",
+    },
+  ]
+
+  const allTools = allData.map((tool) => (
+    <Card tool={tool} key={tool.id} tags={tags} />
+  ))
 
   return (
     <>
@@ -34,9 +83,9 @@ const Tools = ({ tags }) => {
           <ToolsNav />
         </div>
       </header>
-      <main className={`flex flex-1`}>
-        <section className="container">
-          Tools: {Math.floor(Math.random() * 10) + 1}
+      <main className={`mb-20 mt-8 flex flex-1`}>
+        <section className="container flex flex-wrap justify-around gap-8">
+          {allTools}
         </section>
       </main>
     </>

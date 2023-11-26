@@ -6,6 +6,7 @@ import Support from "./pages/Support"
 import About from "./pages/About"
 import Suggest from "./pages/Suggest"
 import Privacy from "./pages/Privacy"
+import ToolDetails from "./pages/ToolDetails"
 import {
   FaRobot,
   FaFlask,
@@ -107,7 +108,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Landing tags={TAGS} />} />
-            <Route path="tools" element={<Tools tags={TAGS} />} />
+            <Route path="tools">
+              <Route index element={<Tools tags={TAGS} />} />
+              <Route path=":id" element={<ToolDetails />} />
+            </Route>
             <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />
             <Route path="suggest" element={<Suggest />} />
