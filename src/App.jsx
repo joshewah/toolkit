@@ -8,6 +8,7 @@ import About from "./pages/About"
 import Suggest from "./pages/Suggest"
 import Privacy from "./pages/Privacy"
 import ToolDetails from "./pages/ToolDetails"
+import { BsStars } from "react-icons/bs"
 import {
   FaRobot,
   FaFlask,
@@ -24,7 +25,6 @@ import { FaCode, FaTools, FaPenNib } from "react-icons/fa"
 
 function App() {
   const [data, setData] = useState([])
-  const [fetchError, setFetchError] = useState(null)
   const [tags, setTags] = useState([
     {
       backgroundColor: "#495057",
@@ -63,6 +63,12 @@ function App() {
       icon: <FaWandMagicSparkles />,
     },
     {
+      backgroundColor: "#fcc419",
+      color: "#fff",
+      category: "Featured",
+      icon: <BsStars />,
+    },
+    {
       backgroundColor: "#1C7ED6",
       color: "#e7f5ff",
       category: "VS Code Extensions",
@@ -95,7 +101,7 @@ function App() {
     {
       backgroundColor: "#F59F00",
       color: "#fff9db",
-      category: "Services",
+      category: "Service",
       icon: <FaTools />,
     },
     {
@@ -106,6 +112,8 @@ function App() {
     },
   ])
 
+  // TODO: Make this into a custom hook
+  // TODO: Add error handling & loading state
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -126,7 +134,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Landing tags={tags} />} />
+            <Route index element={<Landing tags={tags} data={data} />} />
             <Route path="tools">
               <Route index element={<Tools tags={tags} data={data} />} />
               <Route path=":id" element={<ToolDetails data={data} />} />

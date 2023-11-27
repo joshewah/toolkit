@@ -1,11 +1,10 @@
-import React from "react"
-import { BsStars } from "react-icons/bs"
+import Card from "./Card"
+import { FaClock } from "react-icons/fa6"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
-import Card from "./Card"
 
-const Featured = ({ data, tags }) => {
-  console.log(data)
+const Recent = ({ data, tags }) => {
+  // TODO: This should either filter by the date property on the data
   const featuredData = data.filter((tool) => {
     return tool.category.includes("featured")
   })
@@ -15,16 +14,16 @@ const Featured = ({ data, tags }) => {
   ))
 
   return (
-    <section className="bg-primary py-12">
+    <section className=" py-12">
       <div className="container">
         <div className=" mb-12 flex justify-between">
-          <h2 className="tracking flex gap-2 text-4xl font-semibold text-white">
-            Featured <BsStars className="text-[#fcc419]" />
+          <h2 className="tracking flex gap-2 text-4xl font-semibold ">
+            Most Recent <FaClock />
           </h2>
           <Link
-            to={`tools?category=featured`}
+            to={`tools?category=recent`}
             state={{ query: "featured" }}
-            className="flex items-center gap-2 text-white hover:underline hover:underline-offset-4"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           >
             View All
             <FaArrowRight />
@@ -38,4 +37,4 @@ const Featured = ({ data, tags }) => {
   )
 }
 
-export default Featured
+export default Recent

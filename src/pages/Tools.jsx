@@ -20,7 +20,6 @@ const Tools = ({ data, tags }) => {
   const allTools = data.map((tool) => (
     <Card tool={tool} key={tool.id} tags={tags} />
   ))
-  console.log(allTools)
 
   return (
     <>

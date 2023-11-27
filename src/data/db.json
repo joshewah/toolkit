@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Realtime Colors",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "category": ["design", "inspiration"],
+      "category": ["design", "inspiration", "featured"],
       "views": 123,
       "dateSubmitted": "21/2/2019",
       "dateAdded": "17/4/2019",
@@ -28,15 +28,15 @@
     },
     {
       "id": 3,
-      "title": "Realtime Colors",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "category": ["design", "inspiration"],
-      "views": 123,
+      "title": "Can I Use",
+      "description": "\"Can I use\" provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.",
+      "category": ["service"],
+      "views": 13,
       "dateSubmitted": "21/2/2019",
       "dateAdded": "17/4/2019",
-      "siteLink": "https://www.realtimecolors.com",
+      "siteLink": "https://caniuse.com/",
       "cost": "Free",
-      "previewImage": "preview-template.png",
+      "previewImage": "",
       "fullImage": ""
     }
   ]

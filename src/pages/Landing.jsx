@@ -1,7 +1,8 @@
 import Featured from "../components/Featured"
 import AnimatedTags from "../components/AnimatedTags"
+import Recent from "../components/Recent"
 
-const Landing = ({ tags }) => {
+const Landing = ({ data, tags }) => {
   // TODO: custom hook to determine rows based on width
   const rows = 6
   return (
@@ -20,7 +21,8 @@ const Landing = ({ tags }) => {
           <AnimatedTags tags={tags} rows={rows} />
         </section>
       </header>
-      <Featured />
+      <Featured data={data} tags={tags} />
+      <Recent data={data} tags={tags} />
     </main>
   )
 }
