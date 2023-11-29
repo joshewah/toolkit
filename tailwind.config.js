@@ -9,6 +9,8 @@ export default {
         background: "#F3F2F2",
         "background-alt": "#0D0C0C",
         "text-dark": "#0C0F13",
+        "free-color": "#37B24D",
+        "free-background": "#EBFBEE",
       },
     },
   },

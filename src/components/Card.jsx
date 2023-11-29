@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import previewImage from "../assets/preview-template.png"
+import { FaGift } from "react-icons/fa6"
 
 const Card = ({ tool, tags }) => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -12,14 +13,14 @@ const Card = ({ tool, tags }) => {
     })
 
     const styles = {
-      borderStyle: "solid",
-      borderWidth: "3px",
       borderColor: `${tagStyles.backgroundColor}`,
+      color: `${tagStyles.backgroundColor}`,
+      backgroundColor: `${tagStyles.color}`,
     }
     return styles
   }
 
-  handleTagOutlineStyle("design")
+  // handleTagOutlineStyle("design")
 
   const addSearchParams = (e, key, value) => {
     e.preventDefault()
@@ -49,7 +50,7 @@ const Card = ({ tool, tags }) => {
                 <button
                   key={category}
                   onClick={(e) => addSearchParams(e, "category", category)}
-                  className="rounded-md px-2"
+                  className="rounded-full border-2 px-3 py-[0.5px]"
                   style={handleTagOutlineStyle(category)}
                 >
                   {category[0].toUpperCase() + category.slice(1)}
@@ -65,9 +66,10 @@ const Card = ({ tool, tags }) => {
           <div className="flex justify-between">
             <button
               key={tool.id}
-              className="rounded-2 rounded-lg border-[3px] border-green-400 bg-green-200 px-2 text-green-900"
+              className="rounded-2 border-free-color text-free-color bg-free-background flex items-center gap-2 rounded-lg border-2 px-2 font-medium "
               onClick={(e) => addSearchParams(e, "cost", tool.cost)}
             >
+              <FaGift className="text-sm" />
               {tool.cost}
             </button>
           </div>
