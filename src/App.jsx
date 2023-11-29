@@ -8,6 +8,7 @@ import About from "./pages/About"
 import Suggest from "./pages/Suggest"
 import Privacy from "./pages/Privacy"
 import ToolDetails from "./pages/ToolDetails"
+import Missing from "./pages/Missing"
 import { BsStars } from "react-icons/bs"
 import {
   FaRobot,
@@ -143,6 +144,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="suggest" element={<Suggest />} />
             <Route path="privacy" element={<Privacy />} />
+            <Route path="*" element={<Missing />} />
           </Route>
         </Routes>
       </BrowserRouter>
