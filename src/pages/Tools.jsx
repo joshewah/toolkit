@@ -4,12 +4,17 @@ import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
 
 const Tools = ({ data, tags }) => {
+  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false)
   const [search, setSearch] = useState("")
   const [searchParams, setSearchParams] = useSearchParams()
   const queryCategory = searchParams.get("category")
   const [headerDetails] = tags.filter(
     (tag) => tag.category.toLowerCase() === queryCategory,
   )
+
+  const handleCategoryMenu = () => {
+    setIsCategoryMenuOpen((prev) => !prev)
+  }
 
   const styles = queryCategory
     ? {
@@ -52,7 +57,13 @@ const Tools = ({ data, tags }) => {
               All Tools
             </div>
           )}
-          <ToolsNav search={search} setSearch={setSearch} />
+          <ToolsNav
+            search={search}
+            setSearch={setSearch}
+            handleCategoryMenu={handleCategoryMenu}
+            isCategoryMenuOpen={isCategoryMenuOpen}
+            tags={tags}
+          />
           {!toolElements.length ? (
             <h4 className="mt-12 text-xl font-medium">No tools found.</h4>
           ) : null}

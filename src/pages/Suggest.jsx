@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 const Suggest = () => {
-  // const [isFormLoaded, setIsFormLoaded] = useState(false)
   const googleForm = (
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfBFNGdHl8L4cAj7TNFEMEGamti48zxnlYx6i9aBIxJbLuttA/viewform?embedded=true"
-      style={{ width: "100%", height: "100vh" }}
+      width="1000px"
+      height="1000px"
     >
       Loading…
     </iframe>
   )
 
-  console.log(googleForm)
+  // console.log(googleForm)
+
   return (
     <main className="flex flex-1">
       <section className="container mt-6 min-h-screen">

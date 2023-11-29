@@ -38,6 +38,19 @@
       "cost": "Free",
       "previewImage": "",
       "fullImage": ""
+    },
+    {
+      "id": 4,
+      "title": "TLDR",
+      "description": "TLDR This helps you summarize any piece of text into concise, easy to digest content so you can free yourself from information overload.",
+      "category": ["ai"],
+      "views": 13,
+      "dateSubmitted": "21/2/2019",
+      "dateAdded": "17/4/2019",
+      "siteLink": "https://www.tldrthis.com/",
+      "cost": "Free",
+      "previewImage": "",
+      "fullImage": ""
     }
   ]
 }
