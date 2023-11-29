@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ToolsNav from "../components/ToolsNav"
 import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
+import useScrollToTop from "../hooks/useScrollToTop"
 
 const Tools = ({ data, tags }) => {
+  const scrollToTop = useScrollToTop()
+  useEffect(() => {
+    scrollToTop()
+  }, [])
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false)
   const [search, setSearch] = useState("")
   const [searchParams, setSearchParams] = useSearchParams()

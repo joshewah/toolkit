@@ -1,9 +1,14 @@
+import { useEffect } from "react"
 import Featured from "../components/Featured"
 import AnimatedTags from "../components/AnimatedTags"
 import Recent from "../components/Recent"
+import useScrollToTop from "../hooks/useScrollToTop"
 
 const Landing = ({ data, tags }) => {
-  // TODO: custom hook to determine rows based on width
+  const scrollToTop = useScrollToTop()
+  useEffect(() => {
+    scrollToTop()
+  }, [])
   const rows = 6
   return (
     <main className="flex flex-1 flex-col">

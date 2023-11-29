@@ -1,5 +1,3 @@
-import { useEffect, useState, useRef } from "react"
-
 const Suggest = () => {
   const googleForm = (
     <iframe
