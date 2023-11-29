@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
 
 const Tools = ({ data, tags }) => {
+  const [search, setSearch] = useState("")
   const [searchParams, setSearchParams] = useSearchParams()
   const queryCategory = searchParams.get("category")
   const [headerDetails] = tags.filter(
@@ -17,7 +18,23 @@ const Tools = ({ data, tags }) => {
       }
     : null
 
-  const allTools = data.map((tool) => (
+  // TODO: refactor
+  const displayedTools =
+    queryCategory && search
+      ? data.filter(
+          (tool) =>
+            tool.category.includes(queryCategory) &&
+            tool.title.toLowerCase().includes(search.toLowerCase()),
+        )
+      : search
+        ? data.filter((tool) =>
+            tool.title.toLowerCase().includes(search.toLowerCase()),
+          )
+        : queryCategory
+          ? data.filter((tool) => tool.category.includes(queryCategory))
+          : data
+
+  const toolElements = displayedTools.map((tool) => (
     <Card tool={tool} key={tool.id} tags={tags} />
   ))
 
@@ -35,13 +52,18 @@ const Tools = ({ data, tags }) => {
               All Tools
             </div>
           )}
-          <ToolsNav />
+          <ToolsNav search={search} setSearch={setSearch} />
+          {!toolElements.length ? (
+            <h4 className="mt-12 text-xl font-medium">No tools found.</h4>
+          ) : null}
         </div>
       </header>
       <main className={`mb-20 mt-8 flex flex-1`}>
-        <section className="container flex flex-wrap justify-around gap-8">
-          {allTools}
-        </section>
+        {toolElements.length ? (
+          <section className="container flex flex-wrap justify-around gap-8">
+            {toolElements}
+          </section>
+        ) : null}
       </main>
     </>
   )
