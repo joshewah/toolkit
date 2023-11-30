@@ -4,6 +4,7 @@ import previewImage from "../assets/preview-template.png"
 import { FaGift } from "react-icons/fa6"
 
 const Card = ({ tool, tags }) => {
+  console.log(tool)
   const [searchParams, setSearchParams] = useSearchParams()
 
   // TODO make it so this applies when only the category tag is hovered
@@ -13,7 +14,7 @@ const Card = ({ tool, tags }) => {
     })
 
     const styles = {
-      borderColor: `${tagStyles.backgroundColor}`,
+      // borderColor: `${tagStyles.backgroundColor}`,
       color: `${tagStyles.backgroundColor}`,
       backgroundColor: `${tagStyles.color}`,
     }
@@ -38,7 +39,7 @@ const Card = ({ tool, tags }) => {
     >
       <div>
         <img
-          src={previewImage}
+          src={tool.previewImage}
           alt={`Preview image of the site ${tool.title}`}
           className="aspect-video w-full rounded-xl border-4 border-white"
         />
@@ -50,7 +51,7 @@ const Card = ({ tool, tags }) => {
                 <button
                   key={category}
                   onClick={(e) => addSearchParams(e, "category", category)}
-                  className="rounded-full border-2 px-3 py-[0.5px]"
+                  className="rounded-full px-3 py-1"
                   style={handleTagOutlineStyle(category)}
                 >
                   {category[0].toUpperCase() + category.slice(1)}

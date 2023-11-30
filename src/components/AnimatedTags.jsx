@@ -4,11 +4,6 @@ import "./AnimatedTags.css"
 import { Link } from "react-router-dom"
 
 const AnimatedTags = ({ tags, rows }) => {
-  // const handleClick = (category) => {
-  //   const params = new URLSearchParams({ category: category })
-  //   console.log(params)
-  //   console.log("clicked")
-  // }
 
   const DURATION = 28000
   const TAGS_PER_ROW = 8

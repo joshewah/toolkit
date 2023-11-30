@@ -3,15 +3,15 @@ import { FaClock } from "react-icons/fa6"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-const Recent = ({ data, tags }) => {
+const Recent = ({ tags }) => {
   // TODO: This should either filter by the date property on the data
-  const featuredData = data.filter((tool) => {
-    return tool.category.includes("featured")
-  })
+  // const featuredData = data.filter((tool) => {
+  //   return tool.category.includes("featured")
+  // })
 
-  const featuredElements = featuredData.map((tool) => (
-    <Card tool={tool} key={tool.id} tags={tags} />
-  ))
+  // const featuredElements = featuredData.map((tool) => (
+  //   <Card tool={tool} key={tool.id} tags={tags} />
+  // ))
 
   return (
     <section className=" py-12">
@@ -30,7 +30,7 @@ const Recent = ({ data, tags }) => {
           </Link>
         </div>
         <div className="flex flex-wrap justify-around gap-8">
-          {featuredElements}
+          {/* {featuredElements} */}
         </div>
       </div>
     </section>
