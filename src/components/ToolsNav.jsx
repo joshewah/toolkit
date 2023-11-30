@@ -17,21 +17,26 @@ const ToolsNav = ({
     return (
       <Link
         to={`?category=${tag.category.toLowerCase()}`}
-        style={{ backgroundColor: tag.backgroundColor, color: tag.color }}
-        className={`flex items-center gap-2 rounded-full px-4 py-1 font-medium`}
+        className={`group flex items-center gap-4 rounded-full text-xl font-medium hover:bg-blend-darken`}
+        style={{ backgroundColor: tag.color }}
         onClick={handleCategoryMenu}
       >
-        {tag.icon}
-        {tag.category}
+        <span
+          style={{ backgroundColor: tag.color, color: tag.backgroundColor }}
+          className="block max-w-fit rounded-full p-4 text-2xl"
+        >
+          {tag.icon}
+        </span>
+        <p className={`flex h-full flex-1`}>{tag.category}</p>
       </Link>
     )
   })
 
-  console.log(tags)
+  console.log(categoryElements)
 
   return (
-    <nav className="flex flex-wrap items-center justify-between">
-      <div className="relative flex flex-wrap gap-4">
+    <nav className="relative flex flex-wrap items-center justify-between">
+      <div className="flex flex-wrap gap-4">
         <button
           className="flex min-h-[40px] min-w-[120px] items-center gap-2 rounded-md border-2 border-black bg-white px-3 py-1 text-sm font-medium text-text-dark"
           onClick={handleCategoryMenu}
@@ -40,7 +45,7 @@ const ToolsNav = ({
           <FaGrip />
         </button>
         <div
-          className={`absolute left-0 top-14 z-40 flex w-[30vw] flex-wrap gap-4 rounded-lg bg-background p-4 shadow-2xl shadow-gray-700  ${
+          className={`absolute left-0 top-14 z-40 flex max-h-[400px] w-full flex-col flex-wrap gap-4 rounded-lg bg-white p-10 shadow-2xl shadow-gray-600  ${
             isCategoryMenuOpen ? "block" : "hidden"
           } `}
         >
