@@ -4,7 +4,7 @@ import AnimatedTags from "../components/AnimatedTags"
 import Recent from "../components/Recent"
 import useScrollToTop from "../hooks/useScrollToTop"
 
-const Landing = ({ data, tags }) => {
+const Landing = ({ tags }) => {
   const scrollToTop = useScrollToTop()
   useEffect(() => {
     scrollToTop()
@@ -26,8 +26,8 @@ const Landing = ({ data, tags }) => {
           <AnimatedTags tags={tags} rows={rows} />
         </section>
       </header>
-      <Featured data={data} tags={tags} />
-      <Recent data={data} tags={tags} />
+      <Featured tags={tags} />
+      <Recent tags={tags} />
     </main>
   )
 }

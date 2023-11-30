@@ -4,7 +4,8 @@ import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
 import useScrollToTop from "../hooks/useScrollToTop"
 
-const Tools = ({ data, tags }) => {
+const Tools = ({ tags, tools }) => {
+  console.log(tools)
   const scrollToTop = useScrollToTop()
   useEffect(() => {
     scrollToTop()
@@ -31,18 +32,18 @@ const Tools = ({ data, tags }) => {
   // TODO: refactor
   const displayedTools =
     queryCategory && search
-      ? data.filter(
+      ? tools.filter(
           (tool) =>
             tool.category.includes(queryCategory) &&
             tool.title.toLowerCase().includes(search.toLowerCase()),
         )
       : search
-        ? data.filter((tool) =>
+        ? tools.filter((tool) =>
             tool.title.toLowerCase().includes(search.toLowerCase()),
           )
         : queryCategory
-          ? data.filter((tool) => tool.category.includes(queryCategory))
-          : data
+          ? tools.filter((tool) => tool.category.includes(queryCategory))
+          : tools
 
   const toolElements = displayedTools.map((tool) => (
     <Card tool={tool} key={tool.id} tags={tags} />

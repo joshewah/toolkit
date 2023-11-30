@@ -24,7 +24,26 @@ import {
 } from "react-icons/fa6"
 import { FaCode, FaTools, FaPenNib } from "react-icons/fa"
 
+import { db } from "./firebase-config"
+import { collection, getDocs } from "firebase/firestore"
+
 function App() {
+  // TODO: Turn into custom hook
+  const [tools, setTools] = useState([])
+  useEffect(() => {
+    const toolCollectionRef = collection(db, "tools")
+    const getTools = async () => {
+      try {
+        const data = await getDocs(toolCollectionRef)
+        setTools(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        console.log(tools)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    getTools()
+  }, [])
   const [data, setData] = useState([])
   const [tags, setTags] = useState([
     {
@@ -113,32 +132,15 @@ function App() {
     },
   ])
 
-  // TODO: Make this into a custom hook
-  // TODO: Add error handling & loading state
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://localhost:3000/tools`)
-        const data = await response.json()
-        setData(data)
-      } catch (error) {
-        setFetchError(error)
-        console.error(error)
-      }
-    }
-
-    fetchData()
-  }, [])
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Landing tags={tags} data={data} />} />
+            <Route index element={<Landing tags={tags} />} />
             <Route path="tools">
-              <Route index element={<Tools tags={tags} data={data} />} />
-              <Route path=":id" element={<ToolDetails data={data} />} />
+              <Route index element={<Tools tags={tags} tools={tools} />} />
+              <Route path=":id" element={<ToolDetails tools={tools} />} />
             </Route>
             <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />

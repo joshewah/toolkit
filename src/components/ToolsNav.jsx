@@ -32,8 +32,6 @@ const ToolsNav = ({
     )
   })
 
-  console.log(categoryElements)
-
   return (
     <nav className="relative flex flex-wrap items-center justify-between">
       <div className="flex flex-wrap gap-4">
