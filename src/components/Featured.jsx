@@ -18,8 +18,9 @@ const Featured = ({ tools, tags }) => {
   return (
     <section className="bg-primary py-12">
       <div className="container">
-        <div className=" mb-12 flex justify-between">
-          <h2 className="tracking flex gap-2 text-4xl font-semibold text-white">
+        <div className="flex justify-between">
+          {/* <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl "> */}
+          <h2 className="tracking flex items-center gap-2 text-2xl font-semibold text-white md:text-4xl">
             Featured <BsStars className="text-[#fcc419]" />
           </h2>
           <Link

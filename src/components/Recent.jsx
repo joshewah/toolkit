@@ -12,7 +12,7 @@ const Recent = ({ recentTools, tags }) => {
     <section className=" py-12">
       <div className="container">
         <div className=" flex justify-between">
-          <h2 className="tracking flex gap-2 text-4xl font-semibold ">
+          <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl ">
             Most Recent <FaClock />
           </h2>
           <Link
