@@ -76,7 +76,7 @@ const Tools = ({ tags, tools }) => {
       </header>
       <main className={`mb-20 mt-8 flex flex-1`}>
         {toolElements.length ? (
-          <section className="container flex flex-wrap justify-around gap-8">
+          <section className="container flex flex-wrap justify-between gap-12">
             {toolElements}
           </section>
         ) : null}

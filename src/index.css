@@ -35,3 +35,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.scroll--hidden::-webkit-scrollbar {
+  display: none;
+}

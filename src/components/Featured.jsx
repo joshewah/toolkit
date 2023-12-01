@@ -31,7 +31,7 @@ const Featured = ({ tools, tags }) => {
             <FaArrowRight />
           </Link>
         </div>
-        <div className="flex flex-wrap justify-around gap-8">
+        <div className="scroll--hidden flex flex-1 gap-12 overflow-visible overflow-x-auto  py-12">
           {featuredElements}
         </div>
       </div>

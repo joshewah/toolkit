@@ -32,7 +32,7 @@ const Card = ({ tool, tags }) => {
     <Link
       to={`${tool.id}`}
       key={tool.title}
-      className="block max-w-[350px] overflow-hidden rounded-lg bg-white shadow-md transition-all hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
+      className="block min-w-[350px] max-w-[350px] overflow-hidden rounded-lg bg-white shadow-md transition-all hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
     >
       <div>
         <img

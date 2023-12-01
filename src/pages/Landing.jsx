@@ -10,9 +10,15 @@ const Landing = ({ tools, tags }) => {
     scrollToTop()
   }, [])
 
-  // const timeDifference = tools[0].dateAdded
-  // console.log(timeDifference)
-  // - new Date().getTime()
+  const recentTools = tools.filter((tool) => {
+    const dateAdded = new Date(tool.dateAdded.toDate().getTime())
+    const todayDate = new Date()
+
+    const diffTime = Math.abs(dateAdded - todayDate)
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+    return diffDays < 7
+  })
 
   const rows = 6
   return (
@@ -32,7 +38,7 @@ const Landing = ({ tools, tags }) => {
         </section>
       </header>
       <Featured tags={tags} tools={tools} />
-      <Recent tags={tags} />
+      <Recent tags={tags} recentTools={recentTools} />
     </main>
   )
 }
