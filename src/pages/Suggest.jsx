@@ -2,7 +2,7 @@ const Suggest = () => {
   const googleForm = (
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfBFNGdHl8L4cAj7TNFEMEGamti48zxnlYx6i9aBIxJbLuttA/viewform?embedded=true"
-      width="1000px"
+      width="100%"
       height="1000px"
     >
       Loading…
@@ -13,7 +13,7 @@ const Suggest = () => {
 
   return (
     <main className="flex flex-1">
-      <section className="container mt-6 min-h-screen">
+      <section className="container my-6 min-h-screen ">
         <h2 className="pb-6 pt-12 text-4xl font-bold">Suggest</h2>
         <p className="mb-12">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi labore

@@ -5,7 +5,6 @@ import Card from "../components/Card"
 import useScrollToTop from "../hooks/useScrollToTop"
 
 const Tools = ({ tags, tools }) => {
-  console.log(tools)
   const scrollToTop = useScrollToTop()
   useEffect(() => {
     scrollToTop()

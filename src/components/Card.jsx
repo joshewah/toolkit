@@ -4,7 +4,6 @@ import previewImage from "../assets/preview-template.png"
 import { FaGift } from "react-icons/fa6"
 
 const Card = ({ tool, tags }) => {
-  console.log(tool)
   const [searchParams, setSearchParams] = useSearchParams()
 
   // TODO make it so this applies when only the category tag is hovered
@@ -20,8 +19,6 @@ const Card = ({ tool, tags }) => {
     }
     return styles
   }
-
-  // handleTagOutlineStyle("design")
 
   const addSearchParams = (e, key, value) => {
     e.preventDefault()

@@ -4,15 +4,16 @@ import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import Card from "./Card"
 
-const Featured = ({ tags }) => {
+const Featured = ({ tools, tags }) => {
   // TODO: fix this with the new data from the db
-  // const featuredData = data.filter((tool) => {
-  //   return tool.category.includes("featured")
-  // })
+  console.log(tools)
+  const featuredTools = tools.filter((tool) => {
+    return tool.category.includes("featured")
+  })
 
-  // const featuredElements = featuredData.map((tool) => (
-  //   <Card tool={tool} key={tool.id} tags={tags} />
-  // ))
+  const featuredElements = featuredTools.map((tool) => (
+    <Card tool={tool} key={tool.id} tags={tags} />
+  ))
 
   return (
     <section className="bg-primary py-12">
@@ -31,7 +32,7 @@ const Featured = ({ tags }) => {
           </Link>
         </div>
         <div className="flex flex-wrap justify-around gap-8">
-          {/* {featuredElements} */}
+          {featuredElements}
         </div>
       </div>
     </section>

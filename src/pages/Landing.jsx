@@ -4,11 +4,16 @@ import AnimatedTags from "../components/AnimatedTags"
 import Recent from "../components/Recent"
 import useScrollToTop from "../hooks/useScrollToTop"
 
-const Landing = ({ tags }) => {
+const Landing = ({ tools, tags }) => {
   const scrollToTop = useScrollToTop()
   useEffect(() => {
     scrollToTop()
   }, [])
+
+  // const timeDifference = tools[0].dateAdded
+  // console.log(timeDifference)
+  // - new Date().getTime()
+
   const rows = 6
   return (
     <main className="flex flex-1 flex-col">
@@ -26,7 +31,7 @@ const Landing = ({ tags }) => {
           <AnimatedTags tags={tags} rows={rows} />
         </section>
       </header>
-      <Featured tags={tags} />
+      <Featured tags={tags} tools={tools} />
       <Recent tags={tags} />
     </main>
   )

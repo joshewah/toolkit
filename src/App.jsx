@@ -44,7 +44,7 @@ function App() {
 
     getTools()
   }, [])
-  const [data, setData] = useState([])
+
   const [tags, setTags] = useState([
     {
       backgroundColor: "#495057",
@@ -137,7 +137,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Landing tags={tags} />} />
+            <Route index element={<Landing tags={tags} tools={tools} />} />
             <Route path="tools">
               <Route index element={<Tools tags={tags} tools={tools} />} />
               <Route path=":id" element={<ToolDetails tools={tools} />} />

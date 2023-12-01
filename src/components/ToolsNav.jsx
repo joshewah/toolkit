@@ -1,5 +1,6 @@
 import { FaGrip } from "react-icons/fa6"
 import { Link } from "react-router-dom"
+import { useRef, useEffect } from "react"
 
 const ToolsNav = ({
   search,
@@ -17,7 +18,7 @@ const ToolsNav = ({
     return (
       <Link
         to={`?category=${tag.category.toLowerCase()}`}
-        className={`group flex items-center gap-4 rounded-full text-xl font-medium hover:bg-blend-darken`}
+        className={`group flex items-center gap-4 rounded-full text-xl font-medium brightness-[.95] transition-all  hover:saturate-[3] `}
         style={{ backgroundColor: tag.color }}
         onClick={handleCategoryMenu}
       >
