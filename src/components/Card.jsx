@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, useSearchParams } from "react-router-dom"
-import previewImage from "../assets/preview-template.png"
 import { FaGift } from "react-icons/fa6"
 
 const Card = ({ tool, tags }) => {
@@ -31,6 +30,7 @@ const Card = ({ tool, tags }) => {
   return (
     <Link
       to={`${tool.id}`}
+      tool={tool}
       key={tool.title}
       className="block min-w-[350px] max-w-[350px] overflow-hidden rounded-lg bg-white shadow-md transition-all hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
     >
@@ -64,7 +64,7 @@ const Card = ({ tool, tags }) => {
           <div className="flex justify-between">
             <button
               key={tool.id}
-              className="rounded-2 border-free-color text-free-color bg-free-background flex items-center gap-2 rounded-lg border-2 px-2 font-medium "
+              className="rounded-2 flex items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color "
               onClick={(e) => addSearchParams(e, "cost", tool.cost)}
             >
               <FaGift className="text-sm" />

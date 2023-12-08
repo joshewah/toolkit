@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
-import { getFirestore } from "@firebase/firestore"
+import { getFirestore, doc, getDoc } from "@firebase/firestore"
 import { getStorage } from "firebase/storage"
+import ToolDetails from "./pages/ToolDetails"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,3 +24,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
+
+export async function getToolById(toolId) {
+  const docRef = doc(db, "tools", toolId)
+  const docSnap = await getDoc(docRef)
+  return docSnap.data()
+}

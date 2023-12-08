@@ -45,7 +45,7 @@ const Tools = ({ tags, tools }) => {
           : tools
 
   const toolElements = displayedTools.map((tool) => (
-    <Card tool={tool} key={tool.id} tags={tags} />
+    <Card tool={tool} urlPath={`tools/${tool.id}`} key={tool.id} tags={tags} />
   ))
 
   return (

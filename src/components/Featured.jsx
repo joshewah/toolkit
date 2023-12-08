@@ -25,14 +25,13 @@ const Featured = ({ tools, tags }) => {
           </h2>
           <Link
             to={`tools?category=featured`}
-            state={{ query: "featured" }}
             className="flex items-center gap-2 text-white hover:underline hover:underline-offset-4"
           >
             View All
             <FaArrowRight />
           </Link>
         </div>
-        <div className="scroll--hidden flex flex-1 gap-12 overflow-visible overflow-x-auto  py-12">
+        <div className="scroll--hidden flex flex-1 gap-12 overflow-visible overflow-x-auto py-12">
           {featuredElements}
         </div>
       </div>

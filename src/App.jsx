@@ -140,7 +140,7 @@ function App() {
             <Route index element={<Landing tags={tags} tools={tools} />} />
             <Route path="tools">
               <Route index element={<Tools tags={tags} tools={tools} />} />
-              <Route path=":id" element={<ToolDetails tools={tools} />} />
+              <Route path=":toolId" element={<ToolDetails tools={tools} />} />
             </Route>
             <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />
