@@ -3,10 +3,21 @@ import { FaClock } from "react-icons/fa6"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-const Recent = ({ recentTools, tags }) => {
-  const recentElements = recentTools.map((tool) => (
-    <Card tool={tool} key={tool.id} tags={tags} />
-  ))
+const Recent = ({ tools, tags }) => {
+  const recentTools = tools.sort((a, b) => b.dateAdded - a.dateAdded)
+
+  // const recentTools = tools.map((tool) => {
+  //   const dateAdded = new Date(tool.dateAdded.toDate().getTime())
+  //   const todayDate = new Date()
+
+  //   const diffTime = Math.abs(dateAdded - todayDate)
+  //   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  //   return diffDays
+  // })
+
+  const recentElements = recentTools
+    .slice(0, 3)
+    .map((tool) => <Card tool={tool} key={tool.id} tags={tags} />)
 
   return (
     <section className=" py-12">
