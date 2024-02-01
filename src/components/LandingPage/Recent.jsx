@@ -1,4 +1,4 @@
-import Card from "./Card"
+import Card from "../Card"
 import { FaClock } from "react-icons/fa6"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
@@ -20,7 +20,7 @@ const Recent = ({ tools, tags }) => {
     .map((tool) => <Card tool={tool} key={tool.id} tags={tags} />)
 
   return (
-    <section className=" py-12">
+    <section className=" pt-12">
       <div className="container">
         <div className=" flex justify-between">
           <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl ">

@@ -1,7 +1,8 @@
 import { useEffect } from "react"
-import Featured from "../components/Featured"
-import AnimatedTags from "../components/AnimatedTags"
-import Recent from "../components/Recent"
+import AnimatedTags from "../components/LandingPage/AnimatedTags"
+import Featured from "../components/LandingPage/Featured"
+import Recent from "../components/LandingPage/Recent"
+import Categories from "../components/LandingPage/Categories"
 import useScrollToTop from "../hooks/useScrollToTop"
 
 const Landing = ({ tools, tags }) => {
@@ -29,6 +30,7 @@ const Landing = ({ tools, tags }) => {
       </header>
       <Featured tags={tags} tools={tools} />
       <Recent tags={tags} tools={tools} />
+      <Categories tags={tags} />
     </main>
   )
 }

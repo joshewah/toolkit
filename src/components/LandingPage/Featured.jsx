@@ -2,7 +2,7 @@ import React from "react"
 import { BsStars } from "react-icons/bs"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
-import Card from "./Card"
+import Card from "../Card"
 
 const Featured = ({ tools, tags }) => {
   // TODO: fix this with the new data from the db
