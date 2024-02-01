@@ -12,7 +12,7 @@ const Featured = ({ tools, tags }) => {
   })
 
   const featuredElements = featuredTools.map((tool) => (
-    <Card tool={tool} key={tool.id} tags={tags} />
+    <Card tool={tool} key={tool.id} tags={tags} isLandingPage={true} />
   ))
 
   return (

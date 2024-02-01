@@ -17,17 +17,19 @@ const Recent = ({ tools, tags }) => {
 
   const recentElements = recentTools
     .slice(0, 3)
-    .map((tool) => <Card tool={tool} key={tool.id} tags={tags} />)
+    .map((tool) => (
+      <Card tool={tool} key={tool.id} tags={tags} isLandingPage={true} />
+    ))
 
   return (
     <section className=" pt-12">
       <div className="container">
         <div className=" flex justify-between">
           <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl ">
-            Most Recent <FaClock />
+            Newest Additions <FaClock />
           </h2>
           <Link
-            to={`tools?category=recent`}
+            to={`tools?sort=newest`}
             state={{ query: "featured" }}
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           >

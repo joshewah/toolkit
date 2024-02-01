@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { FaGift } from "react-icons/fa6"
 
-const Card = ({ tool, tags }) => {
+const Card = ({ tool, tags, isLandingPage }) => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   // TODO make it so this applies when only the category tag is hovered
@@ -29,7 +29,7 @@ const Card = ({ tool, tags }) => {
 
   return (
     <Link
-      to={`${tool.id}`}
+      to={isLandingPage ? `tools/${tool.id}` : tool.id}
       tool={tool}
       key={tool.title}
       className="block min-w-[350px] max-w-[350px] overflow-hidden rounded-lg bg-white shadow-md transition-all hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"

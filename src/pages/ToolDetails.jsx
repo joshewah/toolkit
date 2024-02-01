@@ -32,7 +32,7 @@ const ToolDetails = () => {
         to={".."}
         className="mb-8 flex w-max flex-wrap items-center gap-2 rounded-lg bg-primary p-2 font-medium text-white"
       >
-        &larr; Back to tools
+        &larr; All Tools
       </Link>
       {isLoaded && tool ? (
         <>
