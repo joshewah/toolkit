@@ -82,12 +82,7 @@ function App() {
       category: "CSS Generators",
       icon: <FaWandMagicSparkles />,
     },
-    {
-      backgroundColor: "#fcc419",
-      color: "#fff",
-      category: "Featured",
-      icon: <BsStars />,
-    },
+
     {
       backgroundColor: "#1C7ED6",
       color: "#e7f5ff",
@@ -117,6 +112,12 @@ function App() {
       color: "#f4fce3",
       category: "Illustrations",
       icon: <FaDrawPolygon />,
+    },
+    {
+      backgroundColor: "#fcc419",
+      color: "#fff9db",
+      category: "Featured",
+      icon: <BsStars />,
     },
     {
       backgroundColor: "#F59F00",

@@ -1,4 +1,5 @@
 import { FaGrip } from "react-icons/fa6"
+import { FaTimes } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { useRef, useEffect } from "react"
 
@@ -14,21 +15,25 @@ const ToolsNav = ({
     setSearch(e.target.value)
   }
 
+  // ? These are all of the category links on the category menu reduced to an array of Links
   const categoryElements = tags.map((tag) => {
     return (
       <Link
         to={`?category=${tag.category.toLowerCase()}`}
-        className={`group flex items-center gap-4 rounded-full text-xl font-medium brightness-[.95] transition-all  hover:saturate-[3] `}
-        style={{ backgroundColor: tag.color }}
+        className={`flex gap-4 rounded-full text-center text-lg font-medium text-black brightness-[.95] transition-all hover:outline hover:outline-2 hover:saturate-200`}
+        style={{
+          backgroundColor: tag.color,
+          outlineColor: tag.backgroundColor,
+        }}
         onClick={handleCategoryMenu}
       >
         <span
-          style={{ backgroundColor: tag.color, color: tag.backgroundColor }}
           className="block max-w-fit rounded-full p-4 text-2xl"
+          style={{ backgroundColor: tag.color, color: tag.backgroundColor }}
         >
           {tag.icon}
         </span>
-        <p className={`flex h-full flex-1`}>{tag.category}</p>
+        <p className={`flex items-center `}>{tag.category}</p>
       </Link>
     )
   })
@@ -44,11 +49,19 @@ const ToolsNav = ({
           <FaGrip />
         </button>
         <div
-          className={`absolute left-0 top-14 z-40 flex max-h-[400px] w-full flex-col flex-wrap gap-4 rounded-lg bg-white p-10 shadow-2xl shadow-gray-600  ${
+          className={`absolute top-16 z-50 flex h-fit w-full flex-col rounded-lg bg-white px-10 py-8 shadow-2xl shadow-gray-600 ${
             isCategoryMenuOpen ? "block" : "hidden"
-          } `}
+          }`}
         >
-          {categoryElements}
+          <div className="mb-10 flex items-center justify-between text-2xl text-text-dark">
+            <p className=" font-semibold">All Categories</p>
+            <button onClick={handleCategoryMenu}>
+              <FaTimes />
+            </button>
+          </div>
+          <div className={`grid gap-4 md:grid-cols-2 lg:grid-cols-3`}>
+            {categoryElements}
+          </div>
         </div>
         <select className="min-h-[40px] min-w-[120px] rounded-md border-2 border-black px-3 py-1 text-sm font-medium text-text-dark">
           <option selected value="here">
