@@ -36,7 +36,7 @@ const ToolDetails = () => {
             <img
               src={tool.previewImage}
               alt={`Image of the landing page on the site ${tool.title}`}
-              className=" mb-6 rounded-lg transition-all sm:shadow-2xl lg:w-3/4 lg:hover:translate-x-6 lg:hover:translate-y-6 lg:hover:rotate-1 lg:hover:scale-110"
+              className=" mb-6 rounded-lg transition-all sm:shadow-2xl lg:w-3/4"
             />
           </div>
 
@@ -67,9 +67,14 @@ const ToolDetails = () => {
             </div>
 
             <div className="flex gap-4 text-2xl transition-all">
-              <button className="rounded-full bg-gray-200 p-3 hover:bg-gray-300">
+              <Link
+                className="rounded-full bg-gray-200 p-3 hover:bg-gray-300"
+                to={tool.siteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaExternalLinkAlt />
-              </button>
+              </Link>
               <button className="rounded-full bg-gray-200 p-3 hover:bg-gray-300">
                 <FaRegHeart />
               </button>
