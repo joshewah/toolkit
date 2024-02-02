@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getToolById } from "../firebase-config"
-import { FaGift } from "react-icons/fa6"
+import { FaGift, FaHouseChimney } from "react-icons/fa6"
+import { FaRegHeart, FaExternalLinkAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 const ToolDetails = () => {
@@ -9,6 +10,7 @@ const ToolDetails = () => {
   const [tool, setTool] = useState({})
   const [isLoaded, setIsLoaded] = useState(false)
 
+  // ? This will fetch the tool by id from the firebase db
   useEffect(() => {
     const fetchTool = async () => {
       try {
@@ -22,48 +24,82 @@ const ToolDetails = () => {
       }
     }
     fetchTool()
-  }, [])
+  }, [toolId])
 
   console.log(tool)
 
   return (
     <main className="container mt-8 flex-1">
-      <Link
-        to={".."}
-        className="mb-8 flex w-max flex-wrap items-center gap-2 rounded-lg bg-primary p-2 font-medium text-white"
-      >
-        &larr; All Tools
-      </Link>
       {isLoaded && tool ? (
         <>
-          <article className="flex gap-8 rounded-lg bg-white p-6">
-            <div className="w-1/3">
-              <img
-                src={tool.previewImage}
-                alt={`Image of the landing page for the site ${tool.title}`}
-                className="rounded-lg"
-              />
-            </div>
-            <div>
-              <h1 className="mb-4 text-4xl font-bold">{tool.title}</h1>
-              <div className="mb-8 flex items-center gap-4">
-                <div className="rounded-2 flex w-min items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color">
-                  <FaGift className="text-sm" />
-                  {tool.cost}
-                </div>
-                <a
-                  href={tool.siteLink}
-                  className="text-blue-700 underline underline-offset-4 transition-all hover:text-blue-800"
-                >
-                  {tool.siteLink}
-                </a>
+          <div className="mb-4 flex sm:mb-12">
+            <img
+              src={tool.previewImage}
+              alt={`Image of the landing page on the site ${tool.title}`}
+              className=" mb-6 rounded-lg transition-all sm:shadow-2xl lg:w-3/4 lg:hover:translate-x-6 lg:hover:translate-y-6 lg:hover:rotate-1 lg:hover:scale-110"
+            />
+          </div>
+
+          <header className="mb-8 border-b-4 pb-8 md:mb-12">
+            <h2 className="mb-1 text-3xl font-semibold lg:mb-2 lg:text-4xl">
+              {tool.title}
+            </h2>
+            <div className="mb-4 flex items-center justify-between sm:mb-6">
+              <div>
+                {tool.category.map((toolCategory) => (
+                  <Link
+                    key={toolCategory}
+                    to={`..?category=${toolCategory}`}
+                    className="pr-4 text-lg font-medium text-gray-600 underline-offset-2 hover:underline"
+                  >
+                    {`${toolCategory[0].toUpperCase()}${toolCategory.slice(1)}`}
+                  </Link>
+                ))}
               </div>
-              <p>{tool.description}</p>
+              <button
+                key={tool.id}
+                className="rounded-2 flex w-min items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color "
+                onClick={(e) => addSearchParams(e, "cost", tool.cost)}
+              >
+                <FaGift className="text-sm" />
+                {tool.cost}
+              </button>
             </div>
+
+            <div className="flex gap-4 text-2xl transition-all">
+              <button className="rounded-full bg-gray-200 p-3 hover:bg-gray-300">
+                <FaExternalLinkAlt />
+              </button>
+              <button className="rounded-full bg-gray-200 p-3 hover:bg-gray-300">
+                <FaRegHeart />
+              </button>
+            </div>
+          </header>
+
+          <article className="mb-24">
+            <h4 className="mb-1 text-3xl font-semibold sm:mb-4 lg:text-4xl">
+              About
+            </h4>
+            <p className="max-w-prose font-medium text-gray-700">
+              {tool.description}
+            </p>
           </article>
         </>
+      ) : isLoaded && !tool ? (
+        <div>
+          <h1 className="pb-6 text-4xl font-semibold">
+            Oops, this page doesn't seem to exist.
+          </h1>
+          <Link
+            to="/"
+            className="flex w-max flex-wrap items-center gap-2 rounded-lg bg-primary p-2 text-white"
+          >
+            <FaHouseChimney />
+            Back home
+          </Link>
+        </div>
       ) : (
-        <p>No tool</p>
+        !isLoaded && <div>Loading...</div>
       )}
     </main>
   )
