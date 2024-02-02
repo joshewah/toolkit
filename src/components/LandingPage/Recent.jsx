@@ -15,11 +15,11 @@ const Recent = ({ tools, tags }) => {
   //   return diffDays
   // })
 
-  const recentElements = recentTools
-    .slice(0, 3)
-    .map((tool) => (
-      <Card tool={tool} key={tool.id} tags={tags} isLandingPage={true} />
-    ))
+  const recentElements = recentTools.slice(0, 3).map((tool) => (
+    <Link to={`tools/${tool.id}`} key={tool.id}>
+      <Card tool={tool} tags={tags} isLandingPage={true} />
+    </Link>
+  ))
 
   return (
     <section className=" pt-12">

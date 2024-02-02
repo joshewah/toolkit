@@ -12,14 +12,15 @@ const Featured = ({ tools, tags }) => {
   })
 
   const featuredElements = featuredTools.map((tool) => (
-    <Card tool={tool} key={tool.id} tags={tags} isLandingPage={true} />
+    <Link to={`tools/${tool.id}`} key={tool.id}>
+      <Card tool={tool} tags={tags} isLandingPage={true} />
+    </Link>
   ))
 
   return (
     <section className="bg-primary py-12">
       <div className="container">
         <div className="flex justify-between">
-          {/* <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl "> */}
           <h2 className="tracking flex items-center gap-2 text-2xl font-semibold text-white md:text-4xl">
             Featured <BsStars className="text-[#fcc419]" />
           </h2>

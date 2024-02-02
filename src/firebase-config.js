@@ -47,7 +47,13 @@ export async function getToolsByCategory(category, currentToolId) {
 
   const querySnapshot = await getDocs(customQuery)
   const allSimilarCategory = querySnapshot.docs.map((doc) => {
-    if (doc.id != currentToolId) return doc.data()
+    if (doc.id != currentToolId) {
+      const data = {
+        id: doc.id,
+        ...doc.data(),
+      }
+      return data
+    }
   })
 
   const uniqueSimilarCategory = allSimilarCategory.filter(
