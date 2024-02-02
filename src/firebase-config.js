@@ -1,6 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
-import { getFirestore, doc, getDoc } from "@firebase/firestore"
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "@firebase/firestore"
 import { getStorage } from "firebase/storage"
 import ToolDetails from "./pages/ToolDetails"
 
@@ -29,4 +37,22 @@ export async function getToolById(toolId) {
   const docRef = doc(db, "tools", toolId)
   const docSnap = await getDoc(docRef)
   return docSnap.data()
+}
+
+export async function getToolsByCategory(category, currentToolId) {
+  const customQuery = query(
+    collection(db, "tools"),
+    where("category", "array-contains", category),
+  )
+
+  const querySnapshot = await getDocs(customQuery)
+  const allSimilarCategory = querySnapshot.docs.map((doc) => {
+    if (doc.id != currentToolId) return doc.data()
+  })
+
+  const uniqueSimilarCategory = allSimilarCategory.filter(
+    (element) => element != null,
+  )
+
+  return uniqueSimilarCategory
 }

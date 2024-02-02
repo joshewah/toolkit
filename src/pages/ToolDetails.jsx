@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getToolById } from "../firebase-config"
+import { getToolById, getToolsByCategory } from "../firebase-config"
 import { FaGift, FaHouseChimney } from "react-icons/fa6"
 import { FaRegHeart, FaExternalLinkAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import Card from "../components/Card"
 
-const ToolDetails = () => {
+const ToolDetails = ({ tags }) => {
   const { toolId } = useParams()
   const [tool, setTool] = useState({})
+  const [relatedTools, setRelatedTools] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
 
   // ? This will fetch the tool by id from the firebase db
@@ -16,7 +18,13 @@ const ToolDetails = () => {
       try {
         const toolData = await getToolById(toolId)
         setTool(toolData)
-        console.log(tool)
+        // ! DEBUG
+        // This is what it should use
+        // console.log(toolData.category[0])
+        const relatedTools = await getToolsByCategory("inspiration", toolId)
+        console.log(relatedTools)
+        setRelatedTools(relatedTools)
+        console.log(relatedTools)
       } catch (error) {
         console.error(error)
       } finally {
@@ -25,8 +33,6 @@ const ToolDetails = () => {
     }
     fetchTool()
   }, [toolId])
-
-  console.log(tool)
 
   return (
     <main className="container mt-8 flex-1">
@@ -81,13 +87,23 @@ const ToolDetails = () => {
             </div>
           </header>
 
-          <article className="mb-24">
-            <h4 className="mb-1 text-3xl font-semibold sm:mb-4 lg:text-4xl">
-              About
-            </h4>
-            <p className="max-w-prose font-medium text-gray-700">
-              {tool.description}
-            </p>
+          <article className="mb-24 flex flex-col justify-between gap-8 lg:flex-row lg:gap-0">
+            <div>
+              <h3 className="mb-4 text-3xl font-semibold sm:mb-4 lg:text-4xl">
+                About
+              </h3>
+              <p className="max-w-prose font-medium text-gray-700">
+                {tool.description}
+              </p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-semibold sm:mb-4 lg:text-4xl">
+                More of {tool.category[0]}
+              </h4>
+              {relatedTools.map((tool) => (
+                <Card tool={tool} key={tool.id} tags={tags} />
+              ))}
+            </div>
           </article>
         </>
       ) : isLoaded && !tool ? (

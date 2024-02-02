@@ -141,7 +141,10 @@ function App() {
             <Route index element={<Landing tags={tags} tools={tools} />} />
             <Route path="tools">
               <Route index element={<Tools tags={tags} tools={tools} />} />
-              <Route path=":toolId" element={<ToolDetails tools={tools} />} />
+              <Route
+                path=":toolId"
+                element={<ToolDetails tools={tools} tags={tags} />}
+              />
             </Route>
             <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />
