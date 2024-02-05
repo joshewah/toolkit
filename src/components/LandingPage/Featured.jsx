@@ -5,8 +5,6 @@ import { Link } from "react-router-dom"
 import Card from "../Card"
 
 const Featured = ({ tools, tags }) => {
-  // TODO: fix this with the new data from the db
-  console.log(tools)
   const featuredTools = tools.filter((tool) => {
     return tool.category.includes("featured")
   })

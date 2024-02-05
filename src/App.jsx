@@ -36,7 +36,6 @@ function App() {
       try {
         const data = await getDocs(toolCollectionRef)
         setTools(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-        console.log(tools)
       } catch (error) {
         console.error(error)
       }

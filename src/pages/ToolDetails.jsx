@@ -19,17 +19,12 @@ const ToolDetails = ({ tags }) => {
     </Link>
   ))
 
-  // console.log(relatedElements)
-
   // ? This will fetch the tool by id from the firebase db
   useEffect(() => {
     const fetchTool = async () => {
       try {
         const toolData = await getToolById(toolId)
         setTool(toolData)
-        // ! DEBUG
-        // This is what it should use
-        // console.log(toolData.category[0])
         const relatedTools = await getToolsByCategory(
           toolData.category[0],
           toolId,

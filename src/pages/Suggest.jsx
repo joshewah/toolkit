@@ -9,8 +9,6 @@ const Suggest = () => {
     </iframe>
   )
 
-  // console.log(googleForm)
-
   return (
     <main className="flex flex-1">
       <section className="container my-6 min-h-screen ">
