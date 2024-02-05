@@ -52,7 +52,7 @@ const Tools = ({ tags, tools }) => {
 
   return (
     <>
-      <header style={styles} className="mb-12">
+      <header style={styles} className="sm:mb-12">
         <div className="container py-12 ">
           {queryCategory ? (
             <div className={`mb-8 flex items-center gap-4 text-4xl font-bold`}>
@@ -78,7 +78,7 @@ const Tools = ({ tags, tools }) => {
       </header>
       <main className={`mb-20 mt-8 flex flex-1`}>
         {toolElements.length ? (
-          <section className="container flex flex-wrap justify-between gap-12">
+          <section className="container flex flex-wrap justify-around gap-12">
             {toolElements}
           </section>
         ) : null}

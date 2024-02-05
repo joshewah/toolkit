@@ -39,10 +39,10 @@ const ToolsNav = ({
   })
 
   return (
-    <nav className="relative flex flex-wrap items-center justify-between">
-      <div className="flex flex-wrap gap-4">
+    <nav className="items-between relative flex flex-col-reverse justify-between gap-4 sm:flex-row">
+      <div className="flex flex-wrap justify-between gap-4">
         <button
-          className="flex min-h-[40px] min-w-[120px] items-center gap-2 rounded-md border-2 border-black bg-white px-3 py-1 text-sm font-medium text-text-dark"
+          className="flex min-h-[40px] flex-grow basis-1/3 items-center gap-2 rounded-md border-2 border-black bg-white px-3 py-1 text-sm font-medium text-text-dark sm:min-w-[120px]"
           onClick={handleCategoryMenu}
         >
           Categories
@@ -63,7 +63,7 @@ const ToolsNav = ({
             {categoryElements}
           </div>
         </div>
-        <select className="min-h-[40px] min-w-[120px] rounded-md border-2 border-black px-3 py-1 text-sm font-medium text-text-dark">
+        <select className="min-h-[40px] flex-grow basis-1/3 rounded-md border-2 border-black px-3 py-1 text-sm font-medium text-text-dark sm:min-w-[120px]">
           <option selected value="here">
             Sort
           </option>
@@ -76,7 +76,7 @@ const ToolsNav = ({
           placeholder="Search"
           value={search}
           onChange={handleFormChange}
-          className="min-h-[40px] min-w-[240px] rounded-md border-2 border-black bg-white px-3 py-1 text-sm font-medium text-text-dark"
+          className="min-h-[40px] w-full rounded-md border-2 border-black bg-white px-3 py-1 text-sm font-medium text-text-dark sm:max-w-[240px]"
         />
       </form>
     </nav>
