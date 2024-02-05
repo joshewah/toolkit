@@ -1,13 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import Logo from "../assets/logo.svg"
 import { Link, NavLink } from "react-router-dom"
 import { FaBars } from "react-icons/fa6"
+import { FaTimes, FaArrowRight } from "react-icons/fa"
 
-const Navbar = () => {
-  // TODO: import a custom hook to determine the width of the page in accordance with the the browsers inner width to conditionally render the navigation
+const Navbar = ({ showNavMenu, setShowNavMenu }) => {
+  const handleNavClick = () => {
+    if (!showNavMenu) {
+      if (typeof window != "undefined" && window.document) {
+        document.body.style.overflow = "hidden"
+      }
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    setShowNavMenu((prev) => !prev)
+  }
+
   return (
     <>
-      <header className="bg-background sticky top-0 z-50 py-4 shadow-lg">
+      <header className="sticky top-0 z-50 bg-background py-4 shadow-lg">
         <div className="container flex items-center justify-between">
           <Link to={"/"} className="flex items-center gap-2">
             <img src={Logo} alt="Logo of a toolbox" className="w-8" />
@@ -15,20 +26,65 @@ const Navbar = () => {
               TOOLkit
             </span>
           </Link>
-          {/* TODO: fix the mobile nav */}
-          <FaBars className="text-3xl md:hidden" />
-          <nav className="hidden items-center gap-4 text-sm font-medium md:flex ">
+          <button className="text-3xl sm:hidden" onClick={handleNavClick}>
+            {showNavMenu ? <FaTimes /> : <FaBars />}
+          </button>
+          <nav className="hidden items-center gap-4 text-sm font-medium sm:flex ">
             <NavLink to="tools">Tools</NavLink>
             <NavLink to="support">Support</NavLink>
             <NavLink to="about">About</NavLink>
             <NavLink
               to="suggest"
-              className="bg-primary rounded-md px-6 py-2 tracking-wide text-white transition-all hover:bg-blue-700"
+              className="rounded-md bg-primary px-6 py-2 tracking-wide text-white transition-all hover:bg-blue-700"
             >
               Suggest
             </NavLink>
           </nav>
         </div>
+        {showNavMenu && (
+          <nav className="container fixed flex h-full flex-col gap-6 bg-background pt-12 text-lg font-semibold">
+            <Link
+              className={
+                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+              }
+              onClick={handleNavClick}
+              to="tools"
+            >
+              Tools
+              <FaArrowRight className="text-lg" />
+            </Link>
+            <Link
+              className={
+                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+              }
+              onClick={handleNavClick}
+              to="support"
+            >
+              Support
+              <FaArrowRight className="text-lg" />
+            </Link>
+            <Link
+              className={
+                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+              }
+              onClick={handleNavClick}
+              to="about"
+            >
+              About
+              <FaArrowRight className="text-lg" />
+            </Link>
+            <Link
+              className={
+                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+              }
+              onClick={handleNavClick}
+              to="suggest"
+            >
+              Suggest
+              <FaArrowRight className="text-lg" />
+            </Link>
+          </nav>
+        )}
       </header>
     </>
   )
