@@ -16,7 +16,7 @@ const Landing = ({ tools, tags }) => {
   const rows = 6
   return (
     <main className="flex flex-1 flex-col">
-      <header className="container flex flex-col items-center pb-16 pt-8 md:mb-24 md:py-20 lg:flex-row">
+      <header className="container flex flex-col items-center py-16 md:mb-24 md:py-20 lg:flex-row">
         <section className="mb-12 lg:mb-0">
           <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
             Resources for your web toolkit
