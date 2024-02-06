@@ -42,7 +42,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
           </nav>
         </div>
         {showNavMenu && (
-          <nav className="container fixed flex h-screen flex-col gap-6 bg-background pt-12 text-lg font-semibold">
+          <nav className="container flex h-screen flex-col gap-6 bg-background pt-12 text-lg font-semibold">
             <Link
               className={
                 "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"

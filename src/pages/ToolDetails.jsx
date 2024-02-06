@@ -16,6 +16,7 @@ const ToolDetails = ({ tags }) => {
   const [tool, setTool] = useState({})
   const [relatedTools, setRelatedTools] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
+  const scrollToTop = useScrollToTop()
 
   // ? This will fetch the tool by id from the firebase db anytime the id is changed
   useEffect(() => {
@@ -35,6 +36,7 @@ const ToolDetails = ({ tags }) => {
         setIsLoaded(true)
       }
     }
+    scrollToTop()
     fetchTool()
   }, [toolId])
 
