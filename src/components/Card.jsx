@@ -29,36 +29,39 @@ const Card = ({ tool, tags, isLandingPage }) => {
 
   return (
     <div
-      className="block min-w-[350px] max-w-[350px] overflow-hidden rounded-lg bg-white shadow-md transition-all hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
+      className="flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-lg md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl"
       key={tool.title}
     >
       <img
         src={tool.previewImage}
         alt={`Preview image of the site ${tool.title}`}
-        className="aspect-video w-full rounded-xl border-4 border-white"
+        className="aspect-video w-full rounded-xl border-8 border-white"
       />
-      <div className="px-4 py-6">
-        <p className="mb-4 text-2xl font-semibold">{tool.title}</p>
-        {tool.category.length ? (
-          <div className="mb-4 flex flex-wrap gap-2 text-sm font-medium">
-            {tool.category.map((category) => (
-              <button
-                key={category}
-                onClick={(e) => addSearchParams(e, "category", category)}
-                className="rounded-full px-3 py-1"
-                style={handleTagOutlineStyle(category)}
-              >
-                {category[0].toUpperCase() + category.slice(1)}
-              </button>
-            ))}
-          </div>
-        ) : null}
-        <p className="mb-8 text-sm leading-normal text-gray-600">
-          {tool.description.length > 40
-            ? `${tool.description.slice(0, 160)}...`
-            : tool.description}
-        </p>
-        <div className="flex justify-between">
+
+      <div className="flex flex-grow flex-col px-4 py-6">
+        <div className="flex-grow">
+          <p className="mb-4 text-2xl font-semibold">{tool.title}</p>
+          {tool.category.length ? (
+            <div className="mb-4 flex flex-wrap gap-2 text-sm font-medium">
+              {tool.category.map((category) => (
+                <button
+                  key={category}
+                  onClick={(e) => addSearchParams(e, "category", category)}
+                  className="rounded-full px-3 py-1"
+                  style={handleTagOutlineStyle(category)}
+                >
+                  {category[0].toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          <p className="mb-8 text-sm leading-normal text-gray-600">
+            {tool.description.length > 120
+              ? `${tool.description.slice(0, 120)}...`
+              : tool.description}
+          </p>
+        </div>
+        <div className="flex-shrink">
           <button
             key={tool.id}
             className="rounded-2 flex items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color "

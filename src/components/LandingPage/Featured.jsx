@@ -30,7 +30,7 @@ const Featured = ({ tools, tags }) => {
             <FaArrowRight />
           </Link>
         </div>
-        <div className="scroll--hidden flex flex-1 gap-12 overflow-visible overflow-x-auto py-12">
+        <div className="scroll--hidden flex flex-1 flex-col items-center gap-12 overflow-visible overflow-x-auto py-12 sm:flex-row">
           {featuredElements}
         </div>
       </div>
