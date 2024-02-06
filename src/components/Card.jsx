@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { FaGift } from "react-icons/fa6"
+import CostTag from "./CostTag"
 
 const Card = ({ tool, tags, isLandingPage }) => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -62,14 +63,7 @@ const Card = ({ tool, tags, isLandingPage }) => {
           </p>
         </div>
         <div className="flex-shrink">
-          <button
-            key={tool.id}
-            className="rounded-2 flex items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color "
-            onClick={(e) => addSearchParams(e, "cost", tool.cost)}
-          >
-            <FaGift className="text-sm" />
-            {tool.cost}
-          </button>
+          <CostTag id={tool.id} cost={tool.cost} />
         </div>
       </div>
     </div>
