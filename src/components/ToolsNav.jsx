@@ -20,15 +20,12 @@ const ToolsNav = ({
       <Link
         to={`?category=${tag.category.toLowerCase()}`}
         className={`flex gap-4 rounded-full text-center text-lg font-medium text-black brightness-[.95] transition-all hover:outline hover:outline-2 hover:saturate-200`}
-        style={{
-          backgroundColor: tag.color,
-          outlineColor: tag.backgroundColor,
-        }}
+        style={{ backgroundColor: tag.backgroundColor, color: tag.color }}
         onClick={handleCategoryMenu}
       >
         <span
           className="block max-w-fit rounded-full p-4 text-2xl"
-          style={{ backgroundColor: tag.color, color: tag.backgroundColor }}
+          style={{ backgroundColor: tag.backgroundColor, color: tag.color }}
         >
           {tag.icon}
         </span>
