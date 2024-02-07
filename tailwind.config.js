@@ -9,7 +9,7 @@ export default {
         background: "#F3F2F2",
         "dark-theme--bg": "#1b1b1b",
         "dark-theme--bg-alt": "#4a4a4a",
-        "dark-theme--card-bg": "#313131",
+        "dark-theme--card-bg": "#262626",
         "dark-theme--text": "#F1F1F1",
         "background-alt": "#0D0C0C",
         text: "#0C0F13",

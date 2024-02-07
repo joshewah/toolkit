@@ -51,7 +51,7 @@ const Tools = ({ tags, tools }) => {
 
   return (
     <>
-      <header style={styles} className="sm:mb-12">
+      <header style={styles} className="bg-gradient-to-r sm:mb-12">
         <div className="container py-12 ">
           {queryCategory ? (
             <div

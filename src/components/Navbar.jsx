@@ -18,7 +18,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
 
   return (
     <>
-      <header className="dark:bg-dark-theme--bg dark:text-dark-theme--text sticky top-0 z-50 bg-white py-4 shadow-lg">
+      <header className="dark:bg-dark-theme--card-bg dark:text-dark-theme--text sticky top-0 z-50 bg-white py-4 shadow-lg">
         <div className="container flex items-center justify-between">
           <Link to={"/"} className="flex items-center gap-2">
             <img src={Logo} alt="Logo of a toolbox" className="w-8" />

@@ -32,8 +32,8 @@ const Card = ({ tool, tags, isLandingPage, darkMode }) => {
       className={`${
         darkMode
           ? "dark:text-text dark:border-none dark:bg-white"
-          : "dark:bg-dark-theme--card-bg"
-      }  dark:border-dark-theme--bg-alt flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg border-[3px] bg-white shadow-lg md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl`}
+          : "dark:bg-dark-theme--card-bg dark:border-dark-theme--bg-alt dark:from-dark-theme--bg-alt dark:from-10%"
+      }   flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg border-[3px] bg-gradient-to-br from-gray-200 from-10% to-white to-30% shadow-lg dark:bg-gradient-to-br  md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl`}
       key={tool.title}
     >
       <img
