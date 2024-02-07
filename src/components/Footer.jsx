@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <section className="bg-secondary">
-        <div className="container max-w-prose py-8 text-white">
+        <div className="container py-8 text-white">
           <h4 className="mb-6 text-4xl font-semibold">TOOLkit</h4>
           <p className="mb-4">
             This project is an aim to collate a collection of curated tools for

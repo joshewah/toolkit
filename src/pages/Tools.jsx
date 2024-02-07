@@ -24,7 +24,6 @@ const Tools = ({ tags, tools }) => {
   const styles = queryCategory
     ? {
         backgroundColor: headerDetails.backgroundColor,
-        color: headerDetails.color,
       }
     : null
 
@@ -55,7 +54,9 @@ const Tools = ({ tags, tools }) => {
       <header style={styles} className="sm:mb-12">
         <div className="container py-12 ">
           {queryCategory ? (
-            <div className={`mb-8 flex items-center gap-4 text-4xl font-bold`}>
+            <div
+              className={`mb-8 flex items-center gap-4 text-4xl font-bold text-white`}
+            >
               {headerDetails.icon}
               <h2>{headerDetails.category}</h2>
             </div>

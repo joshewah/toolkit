@@ -6,7 +6,7 @@ const ImageHeader = ({ previewImage, title }) => {
       <img
         src={previewImage}
         alt={`Image of the landing page on the site ${title}`}
-        className="w-full rounded-t-2xl border-[24px]  border-white shadow-inner"
+        className="dark:border-dark-theme--card-bg w-full rounded-t-2xl  border-[24px] border-white shadow-inner"
       />
     </div>
   )

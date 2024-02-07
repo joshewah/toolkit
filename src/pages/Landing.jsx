@@ -15,7 +15,7 @@ const Landing = ({ tools, tags }) => {
 
   const rows = 6
   return (
-    <main className="flex flex-1 flex-col">
+    <main className=" flex flex-1 flex-col">
       <header className="container flex flex-col items-center py-16 md:mb-24 md:py-20 lg:flex-row">
         <section className="mb-12 lg:mb-0">
           <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
@@ -36,7 +36,7 @@ const Landing = ({ tools, tags }) => {
 
             <Link
               to={"suggest"}
-              className="flex w-full items-center justify-center gap-x-2 rounded-md p-2 font-medium tracking-wide text-primary ring-[3px] ring-inset ring-primary sm:w-[210px] sm:gap-x-4 sm:px-6 sm:py-2 sm:text-lg sm:transition-all sm:hover:bg-primary  sm:hover:text-white "
+              className="dark:bg-dark-theme--bg-alt dark:ring-none flex w-full items-center justify-center gap-x-2 rounded-md p-2 font-medium tracking-wide text-primary ring-[3px] ring-inset ring-primary dark:text-white dark:ring-0 dark:hover:ring-primary sm:w-[210px] sm:gap-x-4 sm:px-6 sm:py-2 sm:text-lg sm:transition-all sm:hover:bg-primary  sm:hover:text-white "
             >
               Suggest
               <FaCirclePlus />

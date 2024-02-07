@@ -18,7 +18,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-background py-4 shadow-lg">
+      <header className="dark:bg-dark-theme--bg dark:text-dark-theme--text sticky top-0 z-50 bg-background py-4 shadow-lg">
         <div className="container flex items-center justify-between">
           <Link to={"/"} className="flex items-center gap-2">
             <img src={Logo} alt="Logo of a toolbox" className="w-8" />
@@ -42,10 +42,10 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
           </nav>
         </div>
         {showNavMenu && (
-          <nav className="container flex h-screen flex-col gap-6 bg-background pt-12 text-lg font-semibold">
+          <nav className="dark:bg-dark-theme--bg container flex h-screen flex-col gap-6 bg-background pt-12 text-lg font-semibold">
             <Link
               className={
-                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+                "dark:bg-dark-theme--card-bg flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
               }
               onClick={handleNavClick}
               to="tools"
@@ -55,7 +55,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
             </Link>
             <Link
               className={
-                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+                "dark:bg-dark-theme--card-bg flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
               }
               onClick={handleNavClick}
               to="support"
@@ -65,7 +65,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
             </Link>
             <Link
               className={
-                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+                "dark:bg-dark-theme--card-bg flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
               }
               onClick={handleNavClick}
               to="about"
@@ -75,7 +75,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
             </Link>
             <Link
               className={
-                "flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
+                "dark:bg-dark-theme--card-bg flex items-center justify-between rounded-full bg-gray-200 px-4 py-2"
               }
               onClick={handleNavClick}
               to="suggest"

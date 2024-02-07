@@ -4,22 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+@layer components {
   .container {
     @apply mx-auto max-w-[1280px] px-4 md:px-6;
   }
+}
 
+@layer base {
+  :root {
+    --BACKGROUND: #f3f2f2;
+  }
   body {
-    @apply bg-background;
+    @apply text-text bg-background;
   }
 
   p {
     @apply max-w-[75ch] leading-7;
   }
-}
-
-:root {
-  --BACKGROUND: #f3f2f2;
 }
 
 html {
@@ -38,4 +39,14 @@ body {
 
 .scroll--hidden::-webkit-scrollbar {
   display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --BACKGROUND: #1b1b1b;
+  }
+
+  body {
+    @apply bg-dark-theme--bg text-dark-theme--text;
+  }
 }

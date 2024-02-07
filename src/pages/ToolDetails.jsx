@@ -46,14 +46,14 @@ const ToolDetails = ({ tags }) => {
         <>
           <ImageHeader previewImage={tool.previewImage} title={tool.title} />
 
-          <article className="mb-8 rounded-b-2xl bg-white p-8 md:mb-12">
+          <article className="dark:bg-dark-theme--card-bg mb-8 rounded-b-2xl bg-white p-8 md:mb-12">
             <div className="flex justify-between">
               <h2 className="mb-1 text-3xl font-semibold lg:mb-2 lg:text-4xl">
                 {tool.title}
               </h2>
               <CostTag id={tool.id} cost={tool.cost} />
             </div>
-            <div className="mb-10 flex items-center justify-between border-b-[3px] border-b-gray-300 pb-10 sm:mb-10">
+            <div className="dark:border-b-dark-theme--bg-alt mb-10 flex items-center justify-between border-b-[3px] border-b-gray-300 pb-10 sm:mb-10">
               <div className="flex flex-wrap">
                 {tool.category.map((category) => (
                   <RelatedCategory key={category} category={category} />
@@ -68,7 +68,7 @@ const ToolDetails = ({ tags }) => {
                 <h3 className="flex-shrink text-3xl font-semibold sm:mb-4 lg:text-4xl">
                   About
                 </h3>
-                <p className="max-w-prose flex-grow font-medium text-gray-700">
+                <p className="max-w-prose flex-grow font-medium">
                   {tool.description}
                 </p>
               </div>

@@ -11,7 +11,7 @@ const Featured = ({ tools, tags }) => {
 
   const featuredElements = featuredTools.map((tool) => (
     <Link to={`tools/${tool.id}`} key={tool.id}>
-      <Card tool={tool} tags={tags} isLandingPage={true} />
+      <Card tool={tool} tags={tags} isLandingPage={true} darkMode={true} />
     </Link>
   ))
 

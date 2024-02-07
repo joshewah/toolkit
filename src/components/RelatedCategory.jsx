@@ -6,7 +6,7 @@ const RelatedCategory = ({ category }) => {
     <Link
       key={category}
       to={`..?category=${category}`}
-      className="pr-4 text-lg font-medium text-gray-600 underline-offset-2 hover:underline"
+      className="dark:text-dark-theme--text pr-4 text-lg font-medium text-gray-600 underline-offset-2 hover:underline"
     >
       {`#${category[0].toUpperCase()}${category.slice(1)}`}
     </Link>

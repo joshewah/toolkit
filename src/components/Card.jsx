@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom"
 import { FaGift } from "react-icons/fa6"
 import CostTag from "./CostTag"
 
-const Card = ({ tool, tags, isLandingPage }) => {
+const Card = ({ tool, tags, isLandingPage, darkMode }) => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   // TODO make it so this applies when only the category tag is hovered
@@ -13,9 +13,8 @@ const Card = ({ tool, tags, isLandingPage }) => {
     })
 
     const styles = {
-      // borderColor: `${tagStyles.backgroundColor}`,
-      color: `${tagStyles.backgroundColor}`,
-      backgroundColor: `${tagStyles.color}`,
+      color: `${tagStyles.color}`,
+      backgroundColor: `${tagStyles.backgroundColor}`,
     }
     return styles
   }
@@ -30,13 +29,17 @@ const Card = ({ tool, tags, isLandingPage }) => {
 
   return (
     <div
-      className="flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-lg md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl"
+      className={`${
+        darkMode
+          ? "dark:text-text dark:border-none dark:bg-white"
+          : "dark:bg-dark-theme--card-bg"
+      }  dark:border-dark-theme--bg-alt flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg border-[3px] bg-white shadow-lg md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl`}
       key={tool.title}
     >
       <img
         src={tool.previewImage}
         alt={`Preview image of the site ${tool.title}`}
-        className="aspect-video w-full rounded-xl border-8 border-white"
+        className="dark:border-dark-theme--bg-alt aspect-video w-full rounded-xl border-white p-2 drop-shadow-2xl"
       />
 
       <div className="flex flex-grow flex-col px-4 py-6">
@@ -56,7 +59,11 @@ const Card = ({ tool, tags, isLandingPage }) => {
               ))}
             </div>
           ) : null}
-          <p className="mb-8 text-sm leading-normal text-gray-600">
+          <p
+            className={`mb-8 text-sm leading-normal text-gray-600 ${
+              darkMode ? "dark:text-text" : "dark:text-gray-200"
+            } `}
+          >
             {tool.description.length > 120
               ? `${tool.description.slice(0, 120)}...`
               : tool.description}
