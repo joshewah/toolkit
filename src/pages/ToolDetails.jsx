@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getToolById, getToolsByCategory } from "../firebase-config"
-import { Link } from "react-router-dom"
-import Card from "../components/Card"
 import useScrollToTop from "../hooks/useScrollToTop"
 import ImageHeader from "../components/ImageHeader"
 import RelatedTools from "../components/RelatedTools"
@@ -11,10 +9,11 @@ import ButtonPanel from "../components/ButtonPanel"
 import CostTag from "../components/CostTag"
 import RelatedCategory from "../components/RelatedCategory"
 
-const ToolDetails = ({ tags }) => {
+const ToolDetails = ({ tags, tools }) => {
   const { toolId } = useParams()
   const [tool, setTool] = useState({})
   const [relatedTools, setRelatedTools] = useState([])
+  const [hasRelatedTools, setHasRelatedTools] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
   const scrollToTop = useScrollToTop()
 
@@ -24,10 +23,16 @@ const ToolDetails = ({ tags }) => {
       try {
         const toolData = await getToolById(toolId)
         setTool(toolData)
-        const relatedTools = await getToolsByCategory(
+        let relatedTools = await getToolsByCategory(
           toolData.category[0],
           toolId,
         )
+
+        if (relatedTools.length == 0) {
+          setHasRelatedTools(false)
+          relatedTools = await getToolsByCategory("featured", toolId)
+        }
+
         setRelatedTools(relatedTools)
         window.scrollTo(0, 0)
       } catch (error) {
@@ -77,7 +82,7 @@ const ToolDetails = ({ tags }) => {
 
           <RelatedTools
             relatedTools={relatedTools}
-            category={tool.category[0]}
+            category={`${hasRelatedTools ? tool.category[0] : "featured"}`}
             tags={tags}
           />
         </>
