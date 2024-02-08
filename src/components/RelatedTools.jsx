@@ -10,7 +10,7 @@ const RelatedTools = ({ relatedTools, category, tags }) => {
   ))
 
   const relatedElementsWrapped = (
-    <div className="flex flex-1 flex-col items-center gap-12 overflow-visible overflow-x-auto py-12 sm:flex-row">
+    <div className="flex flex-1 flex-col items-center gap-12 overflow-visible overflow-x-auto pb-16 pt-6 sm:flex-row sm:py-12">
       {...relatedElements}
     </div>
   )

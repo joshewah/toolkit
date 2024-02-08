@@ -46,19 +46,19 @@ const ToolDetails = ({ tags, tools }) => {
   }, [toolId])
 
   return (
-    <main className="container mt-8 flex-1">
+    <main className="container mt-4 flex-1 sm:mt-8">
       {isLoaded && tool ? (
         <>
           <ImageHeader previewImage={tool.previewImage} title={tool.title} />
 
-          <article className="dark:bg-dark-theme--card-bg mb-8 rounded-b-2xl bg-white p-8 md:mb-12">
-            <div className="flex justify-between">
+          <article className="dark:bg-dark-theme--card-bg mb-16 rounded-b-2xl bg-white p-4 md:mb-12">
+            <div className="mb-2 flex flex-wrap justify-between gap-2">
               <h2 className="mb-1 text-3xl font-semibold lg:mb-2 lg:text-4xl">
                 {tool.title}
               </h2>
               <CostTag id={tool.id} cost={tool.cost} />
             </div>
-            <div className="dark:border-b-dark-theme--bg-alt mb-10 flex items-center justify-between border-b-[3px] border-b-gray-300 pb-10 sm:mb-10">
+            <div className="dark:border-b-dark-theme--bg-alt mb-4 flex items-center justify-between border-b-[3px] border-b-gray-300 pb-4 sm:mb-10">
               <div className="flex flex-wrap">
                 {tool.category.map((category) => (
                   <RelatedCategory key={category} category={category} />
@@ -66,16 +66,14 @@ const ToolDetails = ({ tags, tools }) => {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col-reverse gap-4 sm:flex-row">
               <ButtonPanel siteLink={tool.siteLink} />
 
-              <div className=" flex flex-col gap-2">
-                <h3 className="flex-shrink text-3xl font-semibold sm:mb-4 lg:text-4xl">
+              <div className="mb-4 flex flex-col gap-2 sm:mb-8">
+                <h3 className="flex-shrink text-2xl font-semibold sm:mb-4 lg:text-4xl">
                   About
                 </h3>
-                <p className="max-w-prose flex-grow font-medium">
-                  {tool.description}
-                </p>
+                <p className="max-w-prose flex-grow">{tool.description}</p>
               </div>
             </div>
           </article>
