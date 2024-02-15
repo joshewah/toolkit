@@ -4,9 +4,8 @@ import "./AnimatedTags.css"
 import { Link } from "react-router-dom"
 
 const AnimatedTags = ({ tags, rows }) => {
-
-  const DURATION = 28000
-  const TAGS_PER_ROW = 8
+  const DURATION = 32000
+  const TAGS_PER_ROW = 12
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min
   const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random())
@@ -38,10 +37,7 @@ const AnimatedTags = ({ tags, rows }) => {
         className="tag"
         style={{
           backgroundColor: backgroundColor,
-          color: color,
-          boxShadow: `0 0.1rem 0.2rem ${backgroundColor}`,
-          boxShadow: `0 0.1rem 0.5rem ${backgroundColor}`,
-          boxShadow: `0 0.2rem 1rem ${backgroundColor}`,
+          color: "white",
         }}
       >
         {icon}

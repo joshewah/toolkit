@@ -16,15 +16,15 @@ const Featured = ({ tools, tags }) => {
   ))
 
   return (
-    <section className="bg-primary py-12">
+    <section className="bg-gradient-to-b from-transparent from-10% via-primary to-transparent to-90% py-12 dark:bg-gradient-to-b dark:from-transparent dark:via-primary dark:to-transparent">
       <div className="container">
         <div className="flex justify-between">
-          <h2 className="tracking flex items-center gap-2 text-2xl font-semibold text-white md:text-4xl">
+          <h2 className="tracking flex items-center gap-2 text-2xl font-semibold md:text-4xl">
             Featured <BsStars className="text-[#fcc419]" />
           </h2>
           <Link
             to={`tools?category=featured`}
-            className="flex items-center gap-2 text-white hover:underline hover:underline-offset-4"
+            className="flex items-center gap-2  hover:underline hover:underline-offset-4"
           >
             View All
             <FaArrowRight />

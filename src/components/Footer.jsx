@@ -5,25 +5,8 @@ import { FaSquareGithub, FaLinkedin } from "react-icons/fa6"
 const Footer = () => {
   return (
     <>
-      <section className="bg-secondary">
-        <div className="container py-8 text-white">
-          <h4 className="mb-6 text-4xl font-semibold">TOOLkit</h4>
-          <p className="mb-4">
-            This project is an aim to collate a collection of curated tools for
-            people who create websites.
-          </p>
-          <p>
-            Do you ever get that feeling when you stumble across a new tool
-            whilst scrolling the social media or find a tutorial and think oh
-            thats cool I could use that or when someone mentions something that
-            they use on a regular basis to improve their workflow and you just
-            think, why did I not know about this sooner? Yes? Well you've found
-            a tool to find tools!
-          </p>
-        </div>
-      </section>
-      <footer className="bg-background-alt py-6">
-        <div className="container flex flex-col text-white">
+      <footer className="bg-background-active py-6 dark:bg-dark--background-alternate dark:text-dark--text">
+        <div className="container flex flex-col">
           <nav className="mb-6 flex justify-between">
             <ul className="flex flex-col gap-2 text-lg font-semibold md:flex-row md:items-center">
               <li>
@@ -65,7 +48,7 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm dark:text-dark--text">
             Copyright {new Date().getFullYear()}. All Rights Reserved
           </p>
         </div>

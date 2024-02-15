@@ -4,7 +4,12 @@ import { Link, NavLink } from "react-router-dom"
 import { FaBars } from "react-icons/fa6"
 import { FaTimes, FaArrowRight } from "react-icons/fa"
 
-const Navbar = ({ showNavMenu, setShowNavMenu }) => {
+const Navbar = ({
+  showNavMenu,
+  setShowNavMenu,
+  isDarkMode,
+  toggleDarkMode,
+}) => {
   const handleNavClick = () => {
     if (!showNavMenu) {
       if (typeof window != "undefined" && window.document) {
@@ -18,7 +23,7 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
 
   return (
     <>
-      <header className="dark:bg-dark-theme--card-bg dark:text-dark-theme--text sticky top-0 z-50 bg-white py-4 shadow-lg">
+      <header className="sticky top-0 z-50 bg-background-alternate py-4 text-text shadow-lg dark:bg-dark--background-alternate dark:text-dark--text">
         <div className="container flex items-center justify-between">
           <Link to={"/"} className="flex items-center gap-2">
             <img src={Logo} alt="Logo of a toolbox" className="w-8" />
@@ -30,6 +35,17 @@ const Navbar = ({ showNavMenu, setShowNavMenu }) => {
             {showNavMenu ? <FaTimes /> : <FaBars />}
           </button>
           <nav className="hidden items-center gap-4 text-sm font-medium sm:flex ">
+            {/* <div>
+              <label htmlFor="darkmode-checkbox">
+                Dark Mode:
+                <input
+                  type="checkbox"
+                  id="darkmode-checkbox"
+                  checked={isDarkMode}
+                  onChange={toggleDarkMode}
+                />
+              </label>
+            </div> */}
             <NavLink to="tools">Tools</NavLink>
             <NavLink to="support">Support</NavLink>
             <NavLink to="about">About</NavLink>

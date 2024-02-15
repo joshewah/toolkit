@@ -39,10 +39,9 @@
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    var(--BACKGROUND),
-    transparent 20%,
+    /* var(--BACKGROUND), */ transparent 20%,
     transparent 80%,
-    var(--BACKGROUND)
+    /* var(--BACKGROUND) */
   );
   position: absolute;
   inset: 0;

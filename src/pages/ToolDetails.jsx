@@ -46,19 +46,19 @@ const ToolDetails = ({ tags, tools }) => {
   }, [toolId])
 
   return (
-    <main className="container mt-4 flex-1 sm:mt-8">
+    <main className=" bg-background pt-4 dark:bg-dark--background sm:pt-8">
       {isLoaded && tool ? (
-        <>
+        <article className="container flex-1">
           <ImageHeader previewImage={tool.previewImage} title={tool.title} />
 
-          <article className="dark:bg-dark-theme--card-bg mb-16 rounded-b-2xl bg-white p-4 md:mb-12">
+          <div className="mb-16 rounded-b-2xl bg-background-alternate p-4 text-text dark:bg-dark--background-alternate dark:text-dark--text  md:mb-12">
             <div className="mb-2 flex flex-wrap justify-between gap-2">
               <h2 className="mb-1 text-3xl font-semibold lg:mb-2 lg:text-4xl">
                 {tool.title}
               </h2>
               <CostTag id={tool.id} cost={tool.cost} />
             </div>
-            <div className="dark:border-b-dark-theme--bg-alt mb-4 flex items-center justify-between border-b-[3px] border-b-gray-300 pb-4 sm:mb-10">
+            <div className="mb-4 flex items-center justify-between border-b-[3px] border-b-background-active pb-4 dark:border-b-background-active sm:mb-10">
               <div className="flex flex-wrap">
                 {tool.category.map((category) => (
                   <RelatedCategory key={category} category={category} />
@@ -76,14 +76,14 @@ const ToolDetails = ({ tags, tools }) => {
                 <p className="max-w-prose flex-grow">{tool.description}</p>
               </div>
             </div>
-          </article>
+          </div>
 
           <RelatedTools
             relatedTools={relatedTools}
             category={`${hasRelatedTools ? tool.category[0] : "featured"}`}
             tags={tags}
           />
-        </>
+        </article>
       ) : isLoaded && !tool ? (
         <Missing />
       ) : (

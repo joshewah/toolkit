@@ -1,0 +1,59 @@
+:root {
+  --yellow: yellow;
+}
+
+h1 > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+h1 > .magic > .magic-star {
+  --size: clamp(20px, 1.5vw, 30px);
+
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
+}
+
+h1 > .magic > .magic-star > svg {
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.9;
+}
+
+h1 > .magic > .magic-star > svg > path {
+  fill: var(--yellow);
+}
+
+h1 > .magic > .magic-text {
+  animation: background-pan 3s linear infinite;
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes scale {
+  from,
+  to {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}

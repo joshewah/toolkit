@@ -5,7 +5,7 @@ const CostTag = ({ id, cost }) => {
   return (
     <button
       key={id}
-      className="rounded-2 flex max-h-8 w-min items-center gap-2 rounded-lg border-2 border-free-color bg-free-background px-2 font-medium text-free-color "
+      className="flex max-h-8 w-min items-center gap-2 rounded-md bg-free-color px-2 font-medium text-white"
       //   onClick={(e) => addSearchParams(e, "cost", cost)}
     >
       <FaGift className="text-sm" />

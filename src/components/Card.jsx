@@ -13,8 +13,10 @@ const Card = ({ tool, tags, isLandingPage, darkMode }) => {
     })
 
     const styles = {
-      color: `${tagStyles.color}`,
-      backgroundColor: `${tagStyles.backgroundColor}`,
+      border: `2px solid ${tagStyles.backgroundColor}`,
+      // color: `${tagStyles.backgroundColor}`,
+      // backgroundColor: `${tagStyles.color}`,
+      // backgroundColor: `${tagStyles.backgroundColor}`,
     }
     return styles
   }
@@ -29,29 +31,27 @@ const Card = ({ tool, tags, isLandingPage, darkMode }) => {
 
   return (
     <div
-      className={`${
-        darkMode
-          ? "dark:text-text dark:border-none dark:bg-white"
-          : "dark:bg-dark-theme--card-bg dark:border-dark-theme--bg-alt dark:from-dark-theme--bg-alt dark:from-10%"
-      }   flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg border-[3px] bg-gradient-to-br from-gray-200 from-10% to-white to-30% shadow-lg dark:bg-gradient-to-br  md:transition-all md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:shadow-2xl`}
+      className={`flex h-[500px] min-w-[350px] max-w-[350px] flex-1 flex-col overflow-hidden rounded-lg bg-background-alternate dark:bg-dark--background-alternate md:transition-all md:hover:-translate-y-2 md:hover:bg-background-active md:hover:shadow-lg md:hover:dark:bg-dark--background-active`}
       key={tool.title}
     >
       <img
         src={tool.previewImage}
         alt={`Preview image of the site ${tool.title}`}
-        className="dark:border-dark-theme--bg-alt aspect-video w-full rounded-xl border-white p-2 drop-shadow-2xl"
+        className="aspect-video w-full rounded-xl p-2 drop-shadow-2xl"
       />
 
-      <div className="flex flex-grow flex-col px-4 py-6">
+      <div className="flex flex-grow flex-col bg-inherit px-4 py-6 text-text dark:text-dark--text">
         <div className="flex-grow">
-          <p className="mb-4 text-2xl font-semibold">{tool.title}</p>
+          <p className="mb-4 text-2xl font-semibold text-text dark:text-dark--text-alternate">
+            {tool.title}
+          </p>
           {tool.category.length ? (
             <div className="mb-4 flex flex-wrap gap-2 text-sm font-medium">
               {tool.category.map((category) => (
                 <button
                   key={category}
                   onClick={(e) => addSearchParams(e, "category", category)}
-                  className="rounded-full px-3 py-1"
+                  className="rounded-full px-2 py-[0.5px]"
                   style={handleTagOutlineStyle(category)}
                 >
                   {category[0].toUpperCase() + category.slice(1)}
@@ -59,11 +59,7 @@ const Card = ({ tool, tags, isLandingPage, darkMode }) => {
               ))}
             </div>
           ) : null}
-          <p
-            className={`mb-8 text-sm leading-normal text-gray-600 ${
-              darkMode ? "dark:text-text" : "dark:text-gray-200"
-            } `}
-          >
+          <p className={`mb-8 text-sm leading-normal`}>
             {tool.description.length > 120
               ? `${tool.description.slice(0, 120)}...`
               : tool.description}

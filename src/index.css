@@ -4,6 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ::-webkit-scrollbar {
+  width: 8px;
+  position: absolute;
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: transparent;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
 @layer components {
   .container {
     @apply mx-auto max-w-[1280px] px-4 md:px-6;
@@ -39,14 +60,4 @@ body {
 
 .scroll--hidden::-webkit-scrollbar {
   display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --BACKGROUND: #1b1b1b;
-  }
-
-  body {
-    @apply bg-dark-theme--bg text-dark-theme--text;
-  }
 }

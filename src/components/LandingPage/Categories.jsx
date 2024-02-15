@@ -6,6 +6,7 @@ const Categories = ({ tags }) => {
     return (
       <Link
         to={`tools?category=${tag.category.toLowerCase()}`}
+        key={tag.category}
         className={`flex gap-4 rounded-full text-center text-lg font-medium transition-all hover:opacity-70`}
         style={{
           backgroundColor: tag.backgroundColor,

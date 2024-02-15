@@ -3,8 +3,10 @@ import ToolsNav from "../components/ToolsNav"
 import { Link, useSearchParams } from "react-router-dom"
 import Card from "../components/Card"
 import useScrollToTop from "../hooks/useScrollToTop"
+import { useDarkMode } from "../hooks/useDarkMode"
 
 const Tools = ({ tags, tools }) => {
+  const [isDarkMode] = useDarkMode()
   const scrollToTop = useScrollToTop()
   useEffect(() => {
     scrollToTop()
@@ -51,8 +53,15 @@ const Tools = ({ tags, tools }) => {
 
   return (
     <>
-      <header style={styles} className="bg-gradient-to-r sm:mb-12">
-        <div className="container py-12 ">
+      <header
+        style={styles}
+        className={`${!queryCategory ? "dark:bg-dark--background" : ""}`}
+      >
+        <div
+          className={`dark:text-dark--text text-text ${
+            !queryCategory ? "dark:bg-dark--background" : ""
+          } container py-12`}
+        >
           {queryCategory ? (
             <div
               className={`mb-8 flex items-center gap-4 text-4xl font-bold text-white`}
@@ -77,7 +86,9 @@ const Tools = ({ tags, tools }) => {
           ) : null}
         </div>
       </header>
-      <main className={`mb-20 mt-8 flex flex-1`}>
+      <main
+        className={`dark:bg-dark--background dark:text-dark--text text-text flex flex-1 bg-background pb-20 pt-8 transition-colors`}
+      >
         {toolElements.length ? (
           <section className="container flex flex-wrap justify-around gap-12">
             {toolElements}

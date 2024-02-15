@@ -16,7 +16,7 @@ const RelatedTools = ({ relatedTools, category, tags }) => {
   )
   return (
     <div>
-      <h4 className="text-3xl font-semibold sm:mb-4 lg:text-4xl ">
+      <h4 className="text-3xl font-semibold text-text dark:text-dark--text sm:mb-4 lg:text-4xl ">
         More of {category}
       </h4>
       {relatedElementsWrapped}

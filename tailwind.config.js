@@ -1,18 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
+        // ? LIGHT THEME ☀️
+        background: "#FFFFFF",
+        text: "#1F1F1F",
         primary: "#025CED",
-        secondary: "#27272A",
-        background: "#F3F2F2",
-        "dark-theme--bg": "#1b1b1b",
-        "dark-theme--bg-alt": "#4a4a4a",
-        "dark-theme--card-bg": "#262626",
-        "dark-theme--text": "#F1F1F1",
-        "background-alt": "#0D0C0C",
-        text: "#0C0F13",
+        alternate: "#8247FF",
+        "background-alternate": "#F0F4F8",
+        "background-active": "#DDE3EA",
+
+        // ? DARK THEME 🌙
+        "dark--background": "#131314",
+        "dark--background-alternate": "#1F1F20",
+        "dark--background-active": "#323537",
+        "dark--text": "#E3E3E3",
+        "dark--text-alternate": "#FFFFFF",
+
+        // ? MISCELLANEOUS
         "free-color": "#37B24D",
         "free-background": "#EBFBEE",
       },
